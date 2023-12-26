@@ -1,0 +1,12 @@
+{
+	"extends": "./tsconfig.base.json",
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"./query.d.ts"
+	],
+	"exclude": [
+		"src/**/*.test.ts",
+		"src/**/*.spec.ts"
+	]
+}
