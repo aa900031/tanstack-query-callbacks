@@ -45,18 +45,18 @@
 	},
 	"scripts": {
 		"build": "unbuild",
-		"test": "vitest run",
+		"test": "vitest run --coverage",
 		"dev:test": "vitest",
 		"release": "release-it --ci",
 		"lint": "eslint . --cache --cache-location ./node_modules/.cache/eslint"
 	},
 	"peerDependencies": {
 		"@tanstack/query-core": "^5.*",
-		"@tanstack/vue-query": "^5.*",
 		"@tanstack/react-query": "^5.*",
+		"@tanstack/vue-query": "^5.*",
 		"@vue/composition-api": "^1.1.0",
-		"vue": "^2.6.12 || ^3.2.0",
-		"react": "^18.0.0"
+		"react": "^18.0.0",
+		"vue": "^2.6.12 || ^3.2.0"
 	},
 	"peerDependenciesMeta": {
 		"@tanstack/vue-query": {
@@ -79,23 +79,25 @@
 		"@aa900031/eslint-config": "^1.0.1",
 		"@release-it/conventional-changelog": "^7.0.2",
 		"@tanstack/query-core": "^5.14.2",
-		"@tanstack/vue-query": "^5.14.2",
 		"@tanstack/react-query": "^5.14.2",
-		"@testing-library/vue": "^8.0.1",
+		"@tanstack/vue-query": "^5.14.2",
 		"@testing-library/react": "14.1.2",
+		"@testing-library/vue": "^8.0.1",
 		"@tsconfig/node18": "^18.2.2",
 		"@types/node": "^18.18.7",
 		"@types/react": "^18.2.45",
 		"@types/react-dom": "^18.2.18",
+		"@vitest/coverage-istanbul": "^1.1.0",
+		"@vitest/ui": "^1.1.0",
 		"conventional-changelog-unjs": "^0.1.0",
 		"eslint": "^8.52.0",
 		"happy-dom": "^12.10.3",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
 		"release-it": "^16.2.1",
 		"typescript": "^5.2.2",
 		"unbuild": "^2.0.0",
 		"vitest": "^1.1.0",
-		"vue": "^3.3.13",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"vue": "^3.3.13"
 	}
 }
