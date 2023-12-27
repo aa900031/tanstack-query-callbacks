@@ -1,7 +1,7 @@
 {
 	"name": "tanstack-query-callbacks",
 	"type": "module",
-	"version": "0.0.0",
+	"version": "0.1.0-beta.0",
 	"private": true,
 	"packageManager": "pnpm@8.10.0",
 	"author": "zhong666 <hi@zhong666.me>",
@@ -87,7 +87,7 @@
 		"@tsconfig/node18": "^18.2.2",
 		"@types/node": "^18.18.7",
 		"@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
+		"@types/react-dom": "^18.2.18",
 		"conventional-changelog-unjs": "^0.1.0",
 		"eslint": "^8.52.0",
 		"happy-dom": "^12.10.3",
@@ -97,6 +97,6 @@
 		"vitest": "^1.1.0",
 		"vue": "^3.3.13",
 		"react": "^18.2.0",
-    "react-dom": "^18.2.0"
+		"react-dom": "^18.2.0"
 	}
 }
