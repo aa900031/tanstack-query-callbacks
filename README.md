@@ -4,7 +4,9 @@
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![bundle][bundle-src]][bundle-href]
 
-Use callbacks of query in the usual way, as before
+Use callbacks of query in the usual way, as before.
+
+The tanstack/query has removed `onSuccess`, `onError` and `onSettled` from useQuery in v5. You can find more information in the [RFC](https://github.com/TanStack/query/discussions/5279).
 
 ## Instanll
 
