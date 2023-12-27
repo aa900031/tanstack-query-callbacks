@@ -112,4 +112,15 @@ describe('core', () => {
 		expect(onError).not.toBeCalled()
 		expect(onSettled).not.toBeCalled()
 	})
+
+	it('should return empty func', async () => {
+		const QUERY_KEY = ['foo']
+
+		const unsubscribe = subscribeQueryCallbacks({
+			queryKey: QUERY_KEY,
+			queryClient,
+		})
+
+		expect(unsubscribe).toBeTypeOf('function')
+	})
 })
