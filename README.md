@@ -1,3 +1,72 @@
 # tanstack-query-callbacks
 
-🚧
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![bundle][bundle-src]][bundle-href]
+
+Use callbacks of query in the usual way, as before
+
+## Instanll
+
+```shell
+// use npm
+npm install tanstack-query-callbacks
+
+// use pnpm
+pnpm add tanstack-query-callbacks
+```
+
+## Usage (Vue)
+
+```vue
+<script setup lang=ts>
+import { useQuery } from '@tanstack/vue-query'
+import { useQueryCallbacks } from 'tanstack-query-callbacks/vue'
+const queryKey = ['foo']
+const query = useQuery(queryKey, () => Promise.resolve('bar'))
+useQueryCallbacks({
+	queryKey,
+	onSuccess: (data) => {
+		console.log('success', data)
+	},
+	onError: (err) => {
+		console.error('error', err)
+	},
+	onSettled: (data, err) => {
+		console.log('settled', { data, err })
+	}
+})
+</script>
+```
+
+## Usage (React)
+
+```ts
+import { useQuery } from '@tanstack/react-query'
+import { useQueryCallbacks } from 'tanstack-query-callbacks/react'
+
+const queryKey = ['foo']
+const query = useQuery(queryKey, () => Promise.resolve('bar'))
+
+useQueryCallbacks({
+	queryKey,
+	onSuccess: (data) => {
+		console.log('success', data)
+	},
+	onError: (err) => {
+		console.error('error', err)
+	},
+	onSettled: (data, err) => {
+		console.log('settled', { data, err })
+	}
+})
+```
+
+<!-- Link Resources -->
+
+[npm-version-src]: https://img.shields.io/npm/v/tanstack-query-callbacks?style=flat&colorA=18181B&colorB=F0DB4F
+[npm-version-href]: https://npmjs.com/package/tanstack-query-callbacks
+[npm-downloads-src]: https://img.shields.io/npm/dm/tanstack-query-callbacks?style=flat&colorA=18181B&colorB=F0DB4F
+[npm-downloads-href]: https://npmjs.com/package/tanstack-query-callbacks
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/tanstack-query-callbacks?style=flat&colorA=18181B&colorB=F0DB4F
+[bundle-href]: https://bundlephobia.com/result?p=tanstack-query-callbacks
