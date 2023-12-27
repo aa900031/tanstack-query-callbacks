@@ -6,6 +6,12 @@
 	"packageManager": "pnpm@8.10.0",
 	"author": "zhong666 <hi@zhong666.me>",
 	"license": "MIT",
+	"keywords": [
+		"tanstack",
+		"tanstack-query",
+		"vue-query",
+		"react-query"
+	],
 	"sideEffects": false,
 	"exports": {
 		".": {
@@ -21,6 +27,10 @@
 		"./vue": {
 			"import": "./dist/vue/index.mjs",
 			"require": "./dist/vue/index.cjs"
+		},
+		"./react": {
+			"import": "./dist/react/index.mjs",
+			"require": "./dist/react/index.cjs"
 		}
 	},
 	"main": "dist/index.cjs",
@@ -28,7 +38,8 @@
 	"types": "dist/index.d.ts",
 	"files": [
 		"dist",
-		"vue.d.ts"
+		"vue.d.ts",
+		"react.d.ts"
 	],
 	"publishConfig": {
 		"access": "public"
@@ -40,22 +51,28 @@
 		"release": "release-it --ci",
 		"lint": "eslint . --cache --cache-location ./node_modules/.cache/eslint"
 	},
-	"keywords": [
-		"tanstack",
-		"tanstack-query",
-		"vue-query"
-	],
 	"peerDependencies": {
-		"@tanstack/query-core": "^4.* || ^5.*",
-		"@tanstack/vue-query": "^4.* || ^5.*",
+		"@tanstack/query-core": "^5.*",
+		"@tanstack/vue-query": "^5.*",
+		"@tanstack/react-query": "^5.*",
 		"@vue/composition-api": "^1.1.0",
-		"vue": "^2.6.12 || ^3.2.0"
+		"vue": "^2.6.12 || ^3.2.0",
+		"react": "^18.0.0"
 	},
 	"peerDependenciesMeta": {
-		"vue": {
+		"@tanstack/vue-query": {
+			"optional": true
+		},
+		"@tanstack/react-query": {
 			"optional": true
 		},
 		"@vue/composition-api": {
+			"optional": true
+		},
+		"vue": {
+			"optional": true
+		},
+		"react": {
 			"optional": true
 		}
 	},
@@ -64,15 +81,22 @@
 		"@release-it/conventional-changelog": "^7.0.2",
 		"@tanstack/query-core": "^5.14.2",
 		"@tanstack/vue-query": "^5.14.2",
+		"@tanstack/react-query": "^5.14.2",
 		"@testing-library/vue": "^8.0.1",
+		"@testing-library/react": "14.1.2",
 		"@tsconfig/node18": "^18.2.2",
 		"@types/node": "^18.18.7",
+		"@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
 		"conventional-changelog-unjs": "^0.1.0",
 		"eslint": "^8.52.0",
+		"happy-dom": "^12.10.3",
 		"release-it": "^16.2.1",
 		"typescript": "^5.2.2",
 		"unbuild": "^2.0.0",
 		"vitest": "^1.1.0",
-		"vue": "^3.3.13"
+		"vue": "^3.3.13",
+		"react": "^18.2.0",
+    "react-dom": "^18.2.0"
 	}
 }

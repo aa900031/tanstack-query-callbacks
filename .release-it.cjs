@@ -8,7 +8,9 @@ module.exports = {
 	},
 	git: {
 		push: false,
+		// eslint-disable-next-line no-template-curly-in-string
 		tagName: 'v${version}',
+		// eslint-disable-next-line no-template-curly-in-string
 		commitMessage: 'chore(release): v${version}',
 	},
 	github: {

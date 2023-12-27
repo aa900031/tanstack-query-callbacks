@@ -2,8 +2,7 @@
 	"extends": "./tsconfig.base.json",
 	"include": [
 		"src/**/*.ts",
-		"src/**/*.d.ts",
-		"./query.d.ts"
+		"src/**/*.d.ts"
 	],
 	"exclude": [
 		"src/**/*.test.ts",
