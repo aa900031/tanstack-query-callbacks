@@ -2,7 +2,7 @@ import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
 	entries: [
-		'src/index',
+		'src/core/index',
 		'src/vue/index',
 		'src/react/index',
 	],

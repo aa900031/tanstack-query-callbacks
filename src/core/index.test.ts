@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { QueryClient } from '@tanstack/query-core'
-import { subscribeQueryCallbacks } from '.'
+import { subscribeQueryCallbacks } from './index'
 
 describe('core', () => {
 	let queryClient: QueryClient

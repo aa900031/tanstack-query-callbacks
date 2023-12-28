@@ -1,4 +1,3 @@
-import { nextTick } from 'vue-demi'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { QueryClient, useQuery } from '@tanstack/vue-query'
 import { cleanup, render, waitFor } from '@testing-library/vue'
