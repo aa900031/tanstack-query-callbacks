@@ -19,7 +19,7 @@ devDependencies:
     version: 5.15.0(react@18.2.0)
   '@tanstack/vue-query':
     specifier: ^5.14.2
-    version: 5.14.6(vue@3.3.13)
+    version: 5.14.6(@vue/composition-api@1.7.2)(vue@3.3.13)
   '@testing-library/react':
     specifier: 14.1.2
     version: 14.1.2(react-dom@18.2.0)(react@18.2.0)
@@ -44,6 +44,9 @@ devDependencies:
   '@vitest/ui':
     specifier: ^1.1.0
     version: 1.1.0(vitest@1.1.0)
+  '@vue/composition-api':
+    specifier: ^1.7.2
+    version: 1.7.2(vue@3.3.13)
   conventional-changelog-unjs:
     specifier: ^0.1.0
     version: 0.1.1
@@ -77,6 +80,12 @@ devDependencies:
   vue:
     specifier: ^3.3.13
     version: 3.3.13(typescript@5.3.3)
+  vue-2:
+    specifier: npm:vue@2.6
+    version: /vue@2.6.14
+  vue-2.7:
+    specifier: npm:vue@2.7
+    version: /vue@2.7.16
 
 packages:
 
@@ -1264,7 +1273,7 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@tanstack/vue-query@5.14.6(vue@3.3.13):
+  /@tanstack/vue-query@5.14.6(@vue/composition-api@1.7.2)(vue@3.3.13):
     resolution: {integrity: sha512-h8FuSaje//z5B5h0B79+fnNt32Dp44xmxxXqXiUl4H/1l5i1rtea7Si0Uxst9AevYmpl1gZewmTlJzb/2RKCIQ==}
     peerDependencies:
       '@vue/composition-api': ^1.1.2
@@ -1275,9 +1284,10 @@ packages:
     dependencies:
       '@tanstack/match-sorter-utils': 8.8.4
       '@tanstack/query-core': 5.14.2
+      '@vue/composition-api': 1.7.2(vue@3.3.13)
       '@vue/devtools-api': 6.5.1
       vue: 3.3.13(typescript@5.3.3)
-      vue-demi: 0.14.6(vue@3.3.13)
+      vue-demi: 0.14.6(@vue/composition-api@1.7.2)(vue@3.3.13)
     dev: true
 
   /@testing-library/dom@9.3.3:
@@ -1688,6 +1698,16 @@ packages:
       '@vue/shared': 3.3.13
     dev: true
 
+  /@vue/compiler-sfc@2.7.16:
+    resolution: {integrity: sha512-KWhJ9k5nXuNtygPU7+t1rX6baZeqOYLEforUPjgNDBnLicfHCoi48H87Q8XyLZOrNNsmhuwKqtpDQWjEFe6Ekg==}
+    dependencies:
+      '@babel/parser': 7.23.6
+      postcss: 8.4.32
+      source-map: 0.6.1
+    optionalDependencies:
+      prettier: 2.8.8
+    dev: true
+
   /@vue/compiler-sfc@3.3.13:
     resolution: {integrity: sha512-DQVmHEy/EKIgggvnGRLx21hSqnr1smUS9Aq8tfxiiot8UR0/pXKHN9k78/qQ7etyQTFj5em5nruODON7dBeumw==}
     dependencies:
@@ -1708,6 +1728,14 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.3.13
       '@vue/shared': 3.3.13
+    dev: true
+
+  /@vue/composition-api@1.7.2(vue@3.3.13):
+    resolution: {integrity: sha512-M8jm9J/laYrYT02665HkZ5l2fWTK4dcVg3BsDHm/pfz+MjDYwX+9FUaZyGwEyXEDonQYRCo0H7aLgdklcIELjw==}
+    peerDependencies:
+      vue: '>= 2.5 < 2.7'
+    dependencies:
+      vue: 3.3.13(typescript@5.3.3)
     dev: true
 
   /@vue/devtools-api@6.5.1:
@@ -6007,6 +6035,14 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
+  /prettier@2.8.8:
+    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /pretty-bytes@6.1.1:
     resolution: {integrity: sha512-mQUvGU6aUFQ+rNvTIAcZuWGRT9a6f6Yrg9bHs4ImKF+HZCEK+plBvnAZYSIQztknZF2qnzNtr6F8s0+IuptdlQ==}
     engines: {node: ^14.13.1 || >=16.0.0}
@@ -7329,7 +7365,7 @@ packages:
     resolution: {integrity: sha512-CIwb7s8cqUuPpHDk+0DY8EJ/x8tzdzqw8ycX8hhw1GnbngTgSsIceHAqrrLjmv8zXi+j5XaiqYRQMw8sKyyjkw==}
     dev: true
 
-  /vue-demi@0.14.6(vue@3.3.13):
+  /vue-demi@0.14.6(@vue/composition-api@1.7.2)(vue@3.3.13):
     resolution: {integrity: sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==}
     engines: {node: '>=12'}
     hasBin: true
@@ -7341,6 +7377,7 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
+      '@vue/composition-api': 1.7.2(vue@3.3.13)
       vue: 3.3.13(typescript@5.3.3)
     dev: true
 
@@ -7360,6 +7397,17 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vue@2.6.14:
+    resolution: {integrity: sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==}
+    dev: true
+
+  /vue@2.7.16:
+    resolution: {integrity: sha512-4gCtFXaAA3zYZdTp5s4Hl2sozuySsgz4jy1EnpBHNfpMa9dK1ZCG7viqBPCwXtmgc8nHqUsAu3G4gtmXkkY3Sw==}
+    dependencies:
+      '@vue/compiler-sfc': 2.7.16
+      csstype: 3.1.3
     dev: true
 
   /vue@3.3.13(typescript@5.3.3):

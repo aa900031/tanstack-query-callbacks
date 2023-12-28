@@ -47,11 +47,15 @@
 		"build": "unbuild",
 		"test": "run-s test:*",
 		"test:core": "vitest run --dir ./src/core",
-		"test:vue": "vitest run --dir ./src/vue",
+		"test:vue": "vue-demi-switch 3 && vitest run --dir ./src/vue",
+		"test:vue-2": "vue-demi-switch 2 vue-2 && vitest run --dir ./src/vue",
+		"test:vue-2.7": "vue-demi-switch 2.7 vue-2.7 && vitest run --dir ./src/vue",
 		"test:react": "vitest run --dir ./src/react",
 		"dev:test": "vitest",
 		"release": "release-it --ci",
-		"lint": "eslint . --cache --cache-location ./node_modules/.cache/eslint"
+		"lint": "eslint . --cache --cache-location ./node_modules/.cache/eslint",
+		"posttest:vue-2": "vue-demi-switch 3",
+		"posttest:vue-2.7": "vue-demi-switch 3"
 	},
 	"peerDependencies": {
 		"@tanstack/query-core": "^5.*",
@@ -92,6 +96,7 @@
 		"@types/react-dom": "^18.2.18",
 		"@vitest/coverage-istanbul": "^1.1.0",
 		"@vitest/ui": "^1.1.0",
+		"@vue/composition-api": "^1.7.2",
 		"conventional-changelog-unjs": "^0.1.0",
 		"eslint": "^8.52.0",
 		"happy-dom": "^12.10.3",
@@ -102,6 +107,8 @@
 		"typescript": "^5.2.2",
 		"unbuild": "^2.0.0",
 		"vitest": "^1.1.0",
-		"vue": "^3.3.13"
+		"vue": "^3.3.13",
+		"vue-2": "npm:vue@2.6",
+		"vue-2.7": "npm:vue@2.7"
 	}
 }
