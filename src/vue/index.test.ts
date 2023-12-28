@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { QueryClient, useQuery } from '@tanstack/vue-query'
+import { QueryClient, VUE_QUERY_CLIENT, VueQueryPlugin, useQuery } from '@tanstack/vue-query'
+import type { RenderOptions } from '@testing-library/vue'
 import { cleanup, render, waitFor } from '@testing-library/vue'
 import { useQueryCallbacks } from './index'
 
@@ -78,10 +79,40 @@ describe('vue', () => {
 		expect(onSettled).toBeCalledTimes(1)
 		expect(onSettled).toBeCalledWith(undefined, 'bar')
 	})
+
+	it('should use queryClient from props.queryClientKey', () => {
+		renderSetup(() => {
+			useQueryCallbacks({
+				queryKey: ['foo'],
+				queryClientKey: VUE_QUERY_CLIENT,
+			})
+		}, {
+			global: {
+				plugins: [
+					VueQueryPlugin,
+				],
+			},
+		})
+	})
+
+	it('should use queryClient from context', () => {
+		renderSetup(() => {
+			useQueryCallbacks({
+				queryKey: ['foo'],
+			})
+		}, {
+			global: {
+				plugins: [
+					VueQueryPlugin,
+				],
+			},
+		})
+	})
 })
 
 function renderSetup<T>(
 	setup: () => T,
+	options?: RenderOptions,
 ): T {
 	let result: T
 
@@ -91,6 +122,7 @@ function renderSetup<T>(
 			return () => null
 		},
 	}, {
+		...options,
 		// eslint-disable-next-line ts/ban-ts-comment
 		// @ts-expect-error
 		shallow: true,
