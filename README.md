@@ -3,6 +3,7 @@
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![bundle][bundle-src]][bundle-href]
+[![coverage][coverage-src]][coverage-href]
 
 Use callbacks of query in the usual way, as before.
 
@@ -72,3 +73,5 @@ useQueryCallbacks({
 [npm-downloads-href]: https://npmjs.com/package/tanstack-query-callbacks
 [bundle-src]: https://img.shields.io/bundlephobia/minzip/tanstack-query-callbacks?style=flat&colorA=18181B&colorB=F0DB4F
 [bundle-href]: https://bundlephobia.com/result?p=tanstack-query-callbacks
+[coverage-src]: https://img.shields.io/codecov/c/gh/aa900031/tanstack-query-callbacks?token=AG56Z6EP8U&logo=codecov&color=F0DB4F
+[coverage-href]: https://codecov.io/gh/aa900031/tanstack-query-callbacks
