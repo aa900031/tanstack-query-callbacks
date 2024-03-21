@@ -35,7 +35,7 @@ describe('vue', () => {
 
 			return result
 		}, {
-			queryClient
+			queryClient,
 		})
 
 		expect(query.data.value).toBeUndefined()
@@ -69,7 +69,7 @@ describe('vue', () => {
 
 			return result
 		}, {
-			queryClient
+			queryClient,
 		})
 
 		expect(query.error.value).toBeNull()
@@ -122,7 +122,7 @@ describe('vue', () => {
 
 			useQueryCallbacks({
 				queryKey: QUERY_KEY,
-				queryClientId: queryClientId,
+				queryClientId,
 				onSuccess,
 			})
 
@@ -144,7 +144,7 @@ function renderSetup<T>(
 	setup: () => T,
 	options?:
 		| { queryClient: QueryClient }
-		| { queryClientKey: string }
+		| { queryClientKey: string },
 ): T {
 	let result: T
 
@@ -162,7 +162,7 @@ function renderSetup<T>(
 			plugins: [
 				options && [VueQueryPlugin, options],
 			].filter(Boolean) as any,
-		}
+		},
 	})
 
 	return result!

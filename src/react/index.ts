@@ -29,7 +29,7 @@ export function useQueryCallbacks<
 	const queryClient = useQueryClient(
 		props.context
 			? { context: props.context } as any // for v4
-			: props.queryClient // for v5
+			: props.queryClient, // for v5
 	)
 
 	useEffect(() => {
