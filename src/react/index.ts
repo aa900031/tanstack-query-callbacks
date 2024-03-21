@@ -1,3 +1,4 @@
+import type { Context } from 'react'
 import { useEffect } from 'react'
 import type { QueryClient, QueryKey } from '@tanstack/react-query'
 import { useQueryClient } from '@tanstack/react-query'
@@ -13,6 +14,10 @@ export interface UseQueryCallbacksProps<
 	 * QueryClient instance
 	 */
 	queryClient?: QueryClient
+	/**
+	 * QueryClient context for v4
+	 */
+	context?: Context<QueryClient | undefined>
 }
 
 export function useQueryCallbacks<
@@ -21,7 +26,11 @@ export function useQueryCallbacks<
 >(
 	props: UseQueryCallbacksProps<TQueryFnData, TError>,
 ): void {
-	const queryClient = useQueryClient(props.queryClient)
+	const queryClient = useQueryClient(
+		props.context
+			? { context: props.context } as any // for v4
+			: props.queryClient // for v5
+	)
 
 	useEffect(() => {
 		return subscribeQueryCallbacks({

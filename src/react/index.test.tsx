@@ -1,5 +1,6 @@
+import * as React from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { QueryClient, useQuery } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
 import { cleanup, renderHook, waitFor } from '@testing-library/react'
 import { useQueryCallbacks } from './index'
 
@@ -25,16 +26,17 @@ describe('react', () => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				queryFn: () => Promise.resolve('bar'),
-			}, queryClient)
+			})
 
 			useQueryCallbacks({
 				queryKey: QUERY_KEY,
-				queryClient,
 				onSuccess,
 				onSettled,
 			})
 
 			return result
+		}, {
+			wrapper: createWrapper(queryClient),
 		})
 
 		expect(result.current.data).toBeUndefined()
@@ -59,16 +61,17 @@ describe('react', () => {
 				// eslint-disable-next-line prefer-promise-reject-errors
 				queryFn: () => Promise.reject('bar'),
 				retry: false,
-			}, queryClient)
+			})
 
 			useQueryCallbacks({
 				queryKey: QUERY_KEY,
-				queryClient,
 				onError,
 				onSettled,
 			})
 
 			return result
+		}, {
+			wrapper: createWrapper(queryClient),
 		})
 
 		expect(result.current.error).toBeNull()
@@ -79,4 +82,45 @@ describe('react', () => {
 		expect(onSettled).toBeCalledTimes(1)
 		expect(onSettled).toBeCalledWith(undefined, 'bar')
 	})
+
+	it('should call onSccess with custom QueryClient', async () => {
+		const onSuccess = vi.fn()
+		const QUERY_KEY = ['foo']
+
+		const { result } = renderHook(() => {
+			const result = useQuery({
+				queryKey: QUERY_KEY,
+				queryFn: () => Promise.resolve('bar'),
+			}, queryClient)
+
+			useQueryCallbacks({
+				queryKey: QUERY_KEY,
+				queryClient,
+				onSuccess,
+			})
+
+			return result
+		})
+
+		expect(result.current.data).toBeUndefined()
+
+		await waitFor(() => expect(result.current.data).not.toBeUndefined())
+
+		expect(result.current.data).toBe('bar')
+		expect(onSuccess).toBeCalledTimes(1)
+		expect(onSuccess).toBeCalledWith('bar')
+	})
 })
+
+function createWrapper(
+	queryClient: QueryClient,
+): React.JSXElementConstructor<{ children: React.ReactNode }> {
+	return ({
+		children,
+	}) => (
+		<QueryClientProvider client={queryClient}>
+			{children}
+		</QueryClientProvider>
+	)
+}
+

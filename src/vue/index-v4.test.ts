@@ -1,9 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { QueryClient, VueQueryPlugin, useQuery, useQueryClient } from '@tanstack/vue-query'
+import { QueryClient, VueQueryPlugin, useQuery, useQueryClient } from '@tanstack/vue-query-v4'
 import { cleanup, render, waitFor } from '@testing-library/vue'
 import { useQueryCallbacks } from './index'
 
-describe('vue', () => {
+vi.mock('@tanstack/query-core', () => import('@tanstack/query-core-v4'))
+vi.mock('@tanstack/vue-query', () => import('@tanstack/vue-query-v4'))
+
+describe('vue (v4)', () => {
 	let queryClient: QueryClient
 
 	beforeEach(() => {
@@ -88,12 +91,13 @@ describe('vue', () => {
 		const query = renderSetup(() => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
+				queryClient,
 				queryFn: () => Promise.resolve('bar'),
-			}, queryClient)
+			})
 
 			useQueryCallbacks({
 				queryKey: QUERY_KEY,
-				queryClient,
+				queryClient: queryClient as any,
 				onSuccess,
 			})
 
@@ -118,7 +122,8 @@ describe('vue', () => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				queryFn: () => Promise.resolve('bar'),
-			}, queryClient)
+				queryClient,
+			})
 
 			useQueryCallbacks({
 				queryKey: QUERY_KEY,
@@ -154,7 +159,6 @@ function renderSetup<T>(
 			return () => null
 		},
 	}, {
-		...options,
 		// eslint-disable-next-line ts/ban-ts-comment
 		// @ts-expect-error
 		shallow: true,

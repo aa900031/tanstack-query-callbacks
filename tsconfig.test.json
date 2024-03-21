@@ -4,10 +4,13 @@
 		"lib": [],
 		"types": [
 			"node"
-		]
+		],
+		"jsx": "preserve"
 	},
 	"include": [
 		"src/**/*.ts",
-		"test/**/*.ts"
+		"test/**/*.ts",
+		"src/**/*.tsx",
+		"test/**/*.tsx"
 	]
 }
