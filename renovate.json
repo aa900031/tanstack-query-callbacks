@@ -1,16 +1,6 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": [
-		"config:base",
-		"group:allNonMajor",
-		":semanticCommitTypeAll(chore)",
-		":disablePeerDependencies"
-	],
-	"meteor": {
-		"enabled": false
-	},
-	"rangeStrategy": "bump",
-	"npm": {
-		"commitMessageTopic": "{{prettyDepType}} {{depName}}"
-	}
+		"github>aa900031/renovate-config"
+	]
 }
