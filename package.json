@@ -99,7 +99,7 @@
 		"@vitest/ui": "^1.2.2",
 		"@vue/composition-api": "^1.7.2",
 		"conventional-changelog-unjs": "^0.1.1",
-		"eslint": "^8.56.0",
+		"eslint": "^9.24.0",
 		"happy-dom": "^12.10.3",
 		"npm-run-all2": "^6.1.2",
 		"react": "^18.2.0",
