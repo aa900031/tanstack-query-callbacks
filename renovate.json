@@ -2,5 +2,15 @@
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": [
 		"github>aa900031/renovate-config"
+	],
+	"packageRules": [
+		{
+			"matchPackageNames": ["vue-2"],
+			"allowedVersions": "~2.6.x"
+		},
+		{
+			"matchPackageNames": ["vue-2.7"],
+			"allowedVersions": "2.7.x <3.0.0"
+		}
 	]
 }
