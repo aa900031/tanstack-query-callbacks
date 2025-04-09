@@ -1,20 +1,18 @@
-name: Test
+name: Release Preview
 
 on:
-  push:
-    branches:
-      - main
-
   pull_request:
-    branches:
-      - main
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+
 jobs:
-  test:
+  publish-pkg-pr-new:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,10 +23,8 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
 
-      - name: Run Test
-        run: pnpm run test
+      - name: Build packages
+        run: pnpm run build
 
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Publish to pkg.pr.new
+        run: pnpx pkg-pr-new publish --pnpm
