@@ -2,7 +2,9 @@
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
 		"jsx": "preserve",
-		"lib": [],
+		"lib": [
+			"DOM"
+		],
 		"types": [
 			"node"
 		]

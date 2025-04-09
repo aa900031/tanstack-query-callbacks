@@ -1,6 +1,7 @@
+import { QueryClient, useQuery, useQueryClient, VueQueryPlugin } from '@tanstack/vue-query'
+import { waitFor } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { QueryClient, VueQueryPlugin, useQuery, useQueryClient } from '@tanstack/vue-query'
-import { cleanup, render, waitFor } from '@testing-library/vue'
+import { cleanUp, mountSetup } from '../../test/vue-mount'
 import { useQueryCallbacks } from './index'
 
 describe('vue', () => {
@@ -13,7 +14,7 @@ describe('vue', () => {
 
 	afterEach(() => {
 		queryClient.clear()
-		cleanup()
+		cleanUp()
 	})
 
 	it('should call onSuccess & onSettled', async () => {
@@ -21,7 +22,7 @@ describe('vue', () => {
 		const onSettled = vi.fn()
 		const QUERY_KEY = ['foo']
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				queryFn: () => Promise.resolve('bar'),
@@ -53,7 +54,7 @@ describe('vue', () => {
 		const onSettled = vi.fn()
 		const QUERY_KEY = ['foo']
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				// eslint-disable-next-line prefer-promise-reject-errors
@@ -85,7 +86,7 @@ describe('vue', () => {
 		const onSuccess = vi.fn()
 		const QUERY_KEY = ['foo']
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				queryFn: () => Promise.resolve('bar'),
@@ -113,7 +114,7 @@ describe('vue', () => {
 		const QUERY_KEY = ['foo']
 		const queryClientId = 'custom-key'
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const queryClient = useQueryClient(queryClientId)
 			const result = useQuery({
 				queryKey: QUERY_KEY,
@@ -140,30 +141,14 @@ describe('vue', () => {
 	})
 })
 
-function renderSetup<T>(
+function useQueryClientSetup<T>(
 	setup: () => T,
 	options?:
 		| { queryClient: QueryClient }
 		| { queryClientKey: string },
-): T {
-	let result: T
-
-	render({
-		setup: () => {
-			result = setup()
-			return () => null
-		},
-	}, {
-		...options,
-		// eslint-disable-next-line ts/ban-ts-comment
-		// @ts-expect-error
-		shallow: true,
-		global: {
-			plugins: [
-				options && [VueQueryPlugin, options],
-			].filter(Boolean) as any,
-		},
+) {
+	const { result } = mountSetup<T>(setup, (app) => {
+		app.use(VueQueryPlugin, options)
 	})
-
-	return result!
+	return result
 }

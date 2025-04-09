@@ -1,5 +1,5 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { QueryClient } from '@tanstack/query-core-v4'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { subscribeQueryCallbacks } from './index'
 
 vi.mock('@tanstack/query-core', () => import('@tanstack/query-core-v4'))

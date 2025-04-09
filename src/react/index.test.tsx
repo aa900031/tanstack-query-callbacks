@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
 import { cleanup, renderHook, waitFor } from '@testing-library/react'
+import * as React from 'react'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useQueryCallbacks } from './index'
 
 describe('react', () => {
