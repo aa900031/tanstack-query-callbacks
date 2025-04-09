@@ -5,6 +5,14 @@
 	"packageManager": "pnpm@10.8.0",
 	"author": "zhong666 <hi@zhong666.me>",
 	"license": "MIT",
+	"homepage": "https://github.com/aa900031/tanstack-query-callbacks#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aa900031/tanstack-query-callbacks.git"
+	},
+	"bugs": {
+		"url": "https://github.com/aa900031/tanstack-query-callbacks/issues"
+	},
 	"keywords": [
 		"tanstack",
 		"tanstack-query",
