@@ -1,5 +1,7 @@
 import { QueryClient, VueQueryPlugin, useQuery, useQueryClient } from '@tanstack/vue-query'
-import { cleanup, render, waitFor } from '@testing-library/vue'
+import type { App } from 'vue-demi'
+import { createApp, defineComponent, h } from 'vue-demi'
+import { waitFor } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useQueryCallbacks } from './index'
 
@@ -13,7 +15,6 @@ describe('vue', () => {
 
 	afterEach(() => {
 		queryClient.clear()
-		cleanup()
 	})
 
 	it('should call onSuccess & onSettled', async () => {
@@ -21,7 +22,7 @@ describe('vue', () => {
 		const onSettled = vi.fn()
 		const QUERY_KEY = ['foo']
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				queryFn: () => Promise.resolve('bar'),
@@ -38,10 +39,10 @@ describe('vue', () => {
 			queryClient,
 		})
 
-		expect(query.data.value).toBeUndefined()
-		await waitFor(() => expect(query.data.value).not.toBeUndefined())
+		expect(query.data).toBeUndefined()
+		await waitFor(() => expect(query.data).not.toBeUndefined())
 
-		expect(query.data.value).toBe('bar')
+		expect(query.data).toBe('bar')
 		expect(onSuccess).toBeCalledTimes(1)
 		expect(onSuccess).toBeCalledWith('bar')
 		expect(onSettled).toBeCalledTimes(1)
@@ -53,7 +54,7 @@ describe('vue', () => {
 		const onSettled = vi.fn()
 		const QUERY_KEY = ['foo']
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				// eslint-disable-next-line prefer-promise-reject-errors
@@ -72,8 +73,8 @@ describe('vue', () => {
 			queryClient,
 		})
 
-		expect(query.error.value).toBeNull()
-		await waitFor(() => expect(query.error.value).not.toBeNull())
+		expect(query.error).toBeNull()
+		await waitFor(() => expect(query.error).not.toBeNull())
 
 		expect(onError).toBeCalledTimes(1)
 		expect(onError).toBeCalledWith('bar')
@@ -85,7 +86,7 @@ describe('vue', () => {
 		const onSuccess = vi.fn()
 		const QUERY_KEY = ['foo']
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				queryFn: () => Promise.resolve('bar'),
@@ -100,10 +101,10 @@ describe('vue', () => {
 			return result
 		})
 
-		expect(query.data.value).toBeUndefined()
-		await waitFor(() => expect(query.data.value).not.toBeUndefined())
+		expect(query.data).toBeUndefined()
+		await waitFor(() => expect(query.data).not.toBeUndefined())
 
-		expect(query.data.value).toBe('bar')
+		expect(query.data).toBe('bar')
 		expect(onSuccess).toBeCalledTimes(1)
 		expect(onSuccess).toBeCalledWith('bar')
 	})
@@ -113,7 +114,7 @@ describe('vue', () => {
 		const QUERY_KEY = ['foo']
 		const queryClientId = 'custom-key'
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const queryClient = useQueryClient(queryClientId)
 			const result = useQuery({
 				queryKey: QUERY_KEY,
@@ -131,39 +132,53 @@ describe('vue', () => {
 			queryClientKey: queryClientId,
 		})
 
-		expect(query.data.value).toBeUndefined()
-		await waitFor(() => expect(query.data.value).not.toBeUndefined())
+		expect(query.data).toBeUndefined()
+		await waitFor(() => expect(query.data).not.toBeUndefined())
 
-		expect(query.data.value).toBe('bar')
+		expect(query.data).toBe('bar')
 		expect(onSuccess).toBeCalledTimes(1)
 		expect(onSuccess).toBeCalledWith('bar')
 	})
 })
 
-function renderSetup<T>(
+type InstanceType<V> = V extends { new (...arg: any[]): infer X } ? X : never
+type VM<V> = InstanceType<V> & { unmount: () => void }
+
+function mount<V>(
+	Comp: V,
+	init?: (app: App) => void,
+) {
+	const app = createApp(Comp as any)
+	init?.(app)
+
+	const el = document.createElement('div')
+	const comp = app.mount(el) as any as VM<V>
+	comp.unmount = () => app.unmount()
+	return comp
+}
+
+function useSetup<T>(
+	setup: () => T,
+	init?: (app: App) => void,
+) {
+	const Comp = defineComponent({
+		setup,
+		render() {
+			return h('div', [])
+		},
+	})
+
+	return mount(Comp, init)
+}
+
+function useQueryClientSetup<T>(
 	setup: () => T,
 	options?:
 		| { queryClient: QueryClient }
 		| { queryClientKey: string },
-): T {
-	let result: T
-
-	render({
-		setup: () => {
-			result = setup()
-			return () => null
-		},
-	}, {
-		...options,
-		// eslint-disable-next-line ts/ban-ts-comment
-		// @ts-expect-error
-		shallow: true,
-		global: {
-			plugins: [
-				options && [VueQueryPlugin, options],
-			].filter(Boolean) as any,
-		},
+) {
+	return useSetup<T>(setup, (app) => {
+		if (options)
+			app.use(VueQueryPlugin, options)
 	})
-
-	return result!
 }
