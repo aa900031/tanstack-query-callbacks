@@ -1,7 +1,7 @@
-import { QueryClient, VueQueryPlugin, useQuery, useQueryClient } from '@tanstack/vue-query-v4'
+import { QueryClient, useQuery, useQueryClient, VueQueryPlugin } from '@tanstack/vue-query-v4'
 import { waitFor } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { mountSetup, cleanUp } from '../../test/vue-mount'
+import { cleanUp, mountSetup } from '../../test/vue-mount'
 import { useQueryCallbacks } from './index'
 
 vi.mock('@tanstack/query-core', () => import('@tanstack/query-core-v4'))

@@ -1,7 +1,7 @@
 import type { App, Component, ComponentInstance } from 'vue-demi'
 import { createApp, defineComponent, h, Vue2 } from 'vue-demi'
 
-export type MountResult = {
+export interface MountResult {
 	app: App
 	instance: ComponentInstance
 }
@@ -14,7 +14,7 @@ export function mount<
 	TComponent extends Component,
 >(
 	Comp: TComponent,
-	init?: MountInitFn
+	init?: MountInitFn,
 ): MountResult {
 	if ((Vue2 as any)?._installedPlugins?.length) {
 		(Vue2 as any)._installedPlugins.length = 0
@@ -26,7 +26,7 @@ export function mount<
 		},
 		render() {
 			return h(Comp)
-		}
+		},
 	})
 
 	const app = createApp(AppComp)
@@ -61,7 +61,7 @@ export function mountSetup<T>(
 		},
 		render() {
 			return h('div', [])
-		}
+		},
 	})
 
 	const mounted = mount(Comp, init)
