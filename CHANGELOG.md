@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v0.2.1
+
+[compare changes](https://github.com/aa900031/tanstack-query-callbacks/compare/v0.2.0...v0.2.1)
+
+### 🩹 Fixes
+
+-  **vue:** MaybeRef only use in Vue 3 (#33) ([2d18800](https://github.com/aa900031/tanstack-query-callbacks/commit/2d18800a9ef8b135b7e356a9114ee1232956101b))
+
+### 🏡 Chore
+
+-  **ci:** Release preview to pkg.pr.new (#32) ([9de2876](https://github.com/aa900031/tanstack-query-callbacks/commit/9de28760efb32b3f113e2973b5336d672ebd73f9))
+-  **deps:** Update node.js to v18.20.8 (#20) ([11baead](https://github.com/aa900031/tanstack-query-callbacks/commit/11baeadebef44d235324b97fc3eae473cf39d984))
+-  **deps:** Update npm non-major develop dependencies (#21) ([98902e8](https://github.com/aa900031/tanstack-query-callbacks/commit/98902e8f553768f25e024567a34b6f9c49b37196))
+-  **deps:** Update pnpm to v10 (#29) ([a362f7e](https://github.com/aa900031/tanstack-query-callbacks/commit/a362f7e241c8f02673e13be524e2e0fdebed6981))
+-  **deps:** Update pnpm to v8.15.9 (#17) ([79eadfc](https://github.com/aa900031/tanstack-query-callbacks/commit/79eadfcd4b7e8bdb096455629005f178c5091963))
+-  **deps:** Upgrade and revert (#30) ([8ed2288](https://github.com/aa900031/tanstack-query-callbacks/commit/8ed2288f43aa4c241e82cbb8d030794301c30636))
+-  Use self renovate presets ([035635d](https://github.com/aa900031/tanstack-query-callbacks/commit/035635d7c8d9d834a87a1839c3e27844d0a43d7c))
+
+
+
+#### ❤️ Contributors
+
+- Zhong666 <aa900031@gmail.com>
+- Renovate[bot]
+
 ## v0.2.0
 
 [compare changes](https://github.com/aa900031/tanstack-query-callbacks/compare/v0.1.0...v0.2.0)
