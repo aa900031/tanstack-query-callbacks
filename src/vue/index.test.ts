@@ -1,7 +1,7 @@
 import { QueryClient, VueQueryPlugin, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { waitFor } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { useSetup } from '../../test/vue-mount'
+import { mountSetup, cleanUp } from '../../test/vue-mount'
 import { useQueryCallbacks } from './index'
 
 describe('vue', () => {
@@ -14,6 +14,7 @@ describe('vue', () => {
 
 	afterEach(() => {
 		queryClient.clear()
+		cleanUp()
 	})
 
 	it('should call onSuccess & onSettled', async () => {
@@ -38,10 +39,10 @@ describe('vue', () => {
 			queryClient,
 		})
 
-		expect(query.data).toBeUndefined()
-		await waitFor(() => expect(query.data).not.toBeUndefined())
+		expect(query.data.value).toBeUndefined()
+		await waitFor(() => expect(query.data.value).not.toBeUndefined())
 
-		expect(query.data).toBe('bar')
+		expect(query.data.value).toBe('bar')
 		expect(onSuccess).toBeCalledTimes(1)
 		expect(onSuccess).toBeCalledWith('bar')
 		expect(onSettled).toBeCalledTimes(1)
@@ -72,8 +73,8 @@ describe('vue', () => {
 			queryClient,
 		})
 
-		expect(query.error).toBeNull()
-		await waitFor(() => expect(query.error).not.toBeNull())
+		expect(query.error.value).toBeNull()
+		await waitFor(() => expect(query.error.value).not.toBeNull())
 
 		expect(onError).toBeCalledTimes(1)
 		expect(onError).toBeCalledWith('bar')
@@ -100,10 +101,10 @@ describe('vue', () => {
 			return result
 		})
 
-		expect(query.data).toBeUndefined()
-		await waitFor(() => expect(query.data).not.toBeUndefined())
+		expect(query.data.value).toBeUndefined()
+		await waitFor(() => expect(query.data.value).not.toBeUndefined())
 
-		expect(query.data).toBe('bar')
+		expect(query.data.value).toBe('bar')
 		expect(onSuccess).toBeCalledTimes(1)
 		expect(onSuccess).toBeCalledWith('bar')
 	})
@@ -131,10 +132,10 @@ describe('vue', () => {
 			queryClientKey: queryClientId,
 		})
 
-		expect(query.data).toBeUndefined()
-		await waitFor(() => expect(query.data).not.toBeUndefined())
+		expect(query.data.value).toBeUndefined()
+		await waitFor(() => expect(query.data.value).not.toBeUndefined())
 
-		expect(query.data).toBe('bar')
+		expect(query.data.value).toBe('bar')
 		expect(onSuccess).toBeCalledTimes(1)
 		expect(onSuccess).toBeCalledWith('bar')
 	})
@@ -146,8 +147,8 @@ function useQueryClientSetup<T>(
 		| { queryClient: QueryClient }
 		| { queryClientKey: string },
 ) {
-	return useSetup<T>(setup, (app) => {
-		if (options)
-			app.use(VueQueryPlugin, options)
+	const { result } = mountSetup<T>(setup, (app) => {
+		app.use(VueQueryPlugin, options)
 	})
+	return result
 }

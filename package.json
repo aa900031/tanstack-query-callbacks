@@ -56,7 +56,9 @@
 		"release": "release-it --ci",
 		"lint": "eslint . --cache --cache-location ./node_modules/.cache/eslint",
 		"posttest:vue-2": "vue-demi-switch 3",
-		"posttest:vue-2.7": "vue-demi-switch 3"
+		"posttest:vue-2.7": "vue-demi-switch 3",
+		"postdev:test-vue-2": "vue-demi-switch 3",
+		"postdev:test-vue-2.7": "vue-demi-switch 3"
 	},
 	"peerDependencies": {
 		"@tanstack/query-core": "^4.* || ^5.*",

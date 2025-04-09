@@ -1,32 +1,80 @@
-import type { App } from 'vue-demi'
-import { createApp, defineComponent, h } from 'vue-demi'
+import type { App, Component, ComponentInstance } from 'vue-demi'
+import { createApp, defineComponent, h, Vue2 } from 'vue-demi'
 
-type InstanceType<V> = V extends { new (...arg: any[]): infer X } ? X : never
-type VM<V> = InstanceType<V> & { unmount: () => void }
+export type MountResult = {
+	app: App
+	instance: ComponentInstance
+}
 
-export function mount<V>(
-	Comp: V,
-	init?: (app: App) => void,
-) {
-	const app = createApp(Comp as any)
+export type MountInitFn = (app: App) => void
+
+const apps = new Set<App>()
+
+export function mount<
+	TComponent extends Component,
+>(
+	Comp: TComponent,
+	init?: MountInitFn
+): MountResult {
+	if ((Vue2 as any)?._installedPlugins?.length) {
+		(Vue2 as any)._installedPlugins.length = 0
+	}
+
+	const AppComp = defineComponent({
+		components: {
+			Comp,
+		},
+		render() {
+			return h(Comp)
+		}
+	})
+
+	const app = createApp(AppComp)
 	init?.(app)
 
 	const el = document.createElement('div')
-	const comp = app.mount(el) as any as VM<V>
-	comp.unmount = () => app.unmount()
-	return comp
+	const instance = app.mount(el) as ComponentInstance
+
+	apps.add(app)
+
+	return {
+		app,
+		instance,
+	}
 }
 
-export function useSetup<T>(
+export type MountSetupResult<T> =
+	& MountResult
+	& {
+		result: T
+	}
+
+export function mountSetup<T>(
 	setup: () => T,
-	init?: (app: App) => void,
-) {
+	init?: MountInitFn,
+): MountSetupResult<T> {
+	let result: any
+
 	const Comp = defineComponent({
-		setup,
+		setup() {
+			result = setup()
+		},
 		render() {
 			return h('div', [])
-		},
+		}
 	})
 
-	return mount(Comp, init)
+	const mounted = mount(Comp, init)
+
+	return {
+		...mounted,
+		result,
+	}
+}
+
+export function cleanUp() {
+	for (const app of apps) {
+		app.unmount()
+		apps.delete(app)
+	}
 }
