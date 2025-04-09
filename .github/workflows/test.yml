@@ -9,26 +9,21 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Setup Nodejs
-        uses: actions/setup-node@v4
-        with:
-          cache: pnpm
-          registry-url: https://registry.npmjs.org/
-          node-version-file: .tool-versions
-
-      - name: Install Dependencies
-        run: pnpm i
+      - name: Setup
+        uses: ./.github/actions/setup
 
       - name: Run Test
         run: pnpm run test
