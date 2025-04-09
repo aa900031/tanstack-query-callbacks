@@ -1,6 +1,7 @@
 import { QueryClient, VueQueryPlugin, useQuery, useQueryClient } from '@tanstack/vue-query-v4'
-import { cleanup, render, waitFor } from '@testing-library/vue'
+import { waitFor } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { useSetup } from '../../test/vue-mount'
 import { useQueryCallbacks } from './index'
 
 vi.mock('@tanstack/query-core', () => import('@tanstack/query-core-v4'))
@@ -16,7 +17,6 @@ describe('vue (v4)', () => {
 
 	afterEach(() => {
 		queryClient.clear()
-		cleanup()
 	})
 
 	it('should call onSuccess & onSettled', async () => {
@@ -24,7 +24,7 @@ describe('vue (v4)', () => {
 		const onSettled = vi.fn()
 		const QUERY_KEY = ['foo']
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				queryFn: () => Promise.resolve('bar'),
@@ -41,10 +41,10 @@ describe('vue (v4)', () => {
 			queryClient,
 		})
 
-		expect(query.data.value).toBeUndefined()
-		await waitFor(() => expect(query.data.value).not.toBeUndefined())
+		expect(query.data).toBeUndefined()
+		await waitFor(() => expect(query.data).not.toBeUndefined())
 
-		expect(query.data.value).toBe('bar')
+		expect(query.data).toBe('bar')
 		expect(onSuccess).toBeCalledTimes(1)
 		expect(onSuccess).toBeCalledWith('bar')
 		expect(onSettled).toBeCalledTimes(1)
@@ -56,7 +56,7 @@ describe('vue (v4)', () => {
 		const onSettled = vi.fn()
 		const QUERY_KEY = ['foo']
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				// eslint-disable-next-line prefer-promise-reject-errors
@@ -75,8 +75,8 @@ describe('vue (v4)', () => {
 			queryClient,
 		})
 
-		expect(query.error.value).toBeNull()
-		await waitFor(() => expect(query.error.value).not.toBeNull())
+		expect(query.error).toBeNull()
+		await waitFor(() => expect(query.error).not.toBeNull())
 
 		expect(onError).toBeCalledTimes(1)
 		expect(onError).toBeCalledWith('bar')
@@ -88,7 +88,7 @@ describe('vue (v4)', () => {
 		const onSuccess = vi.fn()
 		const QUERY_KEY = ['foo']
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const result = useQuery({
 				queryKey: QUERY_KEY,
 				queryClient,
@@ -104,10 +104,10 @@ describe('vue (v4)', () => {
 			return result
 		})
 
-		expect(query.data.value).toBeUndefined()
-		await waitFor(() => expect(query.data.value).not.toBeUndefined())
+		expect(query.data).toBeUndefined()
+		await waitFor(() => expect(query.data).not.toBeUndefined())
 
-		expect(query.data.value).toBe('bar')
+		expect(query.data).toBe('bar')
 		expect(onSuccess).toBeCalledTimes(1)
 		expect(onSuccess).toBeCalledWith('bar')
 	})
@@ -117,7 +117,7 @@ describe('vue (v4)', () => {
 		const QUERY_KEY = ['foo']
 		const queryClientId = 'custom-key'
 
-		const query = renderSetup(() => {
+		const query = useQueryClientSetup(() => {
 			const queryClient = useQueryClient(queryClientId)
 			const result = useQuery({
 				queryKey: QUERY_KEY,
@@ -136,38 +136,23 @@ describe('vue (v4)', () => {
 			queryClientKey: queryClientId,
 		})
 
-		expect(query.data.value).toBeUndefined()
-		await waitFor(() => expect(query.data.value).not.toBeUndefined())
+		expect(query.data).toBeUndefined()
+		await waitFor(() => expect(query.data).not.toBeUndefined())
 
-		expect(query.data.value).toBe('bar')
+		expect(query.data).toBe('bar')
 		expect(onSuccess).toBeCalledTimes(1)
 		expect(onSuccess).toBeCalledWith('bar')
 	})
 })
 
-function renderSetup<T>(
+function useQueryClientSetup<T>(
 	setup: () => T,
 	options?:
 		| { queryClient: QueryClient }
 		| { queryClientKey: string },
-): T {
-	let result: T
-
-	render({
-		setup: () => {
-			result = setup()
-			return () => null
-		},
-	}, {
-		// eslint-disable-next-line ts/ban-ts-comment
-		// @ts-expect-error
-		shallow: true,
-		global: {
-			plugins: [
-				options && [VueQueryPlugin, options],
-			].filter(Boolean) as any,
-		},
+) {
+	return useSetup<T>(setup, (app) => {
+		if (options)
+			app.use(VueQueryPlugin, options)
 	})
-
-	return result!
 }

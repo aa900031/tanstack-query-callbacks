@@ -1,8 +1,7 @@
 import { QueryClient, VueQueryPlugin, useQuery, useQueryClient } from '@tanstack/vue-query'
-import type { App } from 'vue-demi'
-import { createApp, defineComponent, h } from 'vue-demi'
 import { waitFor } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { useSetup } from '../../test/vue-mount'
 import { useQueryCallbacks } from './index'
 
 describe('vue', () => {
@@ -140,36 +139,6 @@ describe('vue', () => {
 		expect(onSuccess).toBeCalledWith('bar')
 	})
 })
-
-type InstanceType<V> = V extends { new (...arg: any[]): infer X } ? X : never
-type VM<V> = InstanceType<V> & { unmount: () => void }
-
-function mount<V>(
-	Comp: V,
-	init?: (app: App) => void,
-) {
-	const app = createApp(Comp as any)
-	init?.(app)
-
-	const el = document.createElement('div')
-	const comp = app.mount(el) as any as VM<V>
-	comp.unmount = () => app.unmount()
-	return comp
-}
-
-function useSetup<T>(
-	setup: () => T,
-	init?: (app: App) => void,
-) {
-	const Comp = defineComponent({
-		setup,
-		render() {
-			return h('div', [])
-		},
-	})
-
-	return mount(Comp, init)
-}
 
 function useQueryClientSetup<T>(
 	setup: () => T,
