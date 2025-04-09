@@ -1,3 +1,3 @@
-// eslint-disable-next-line ts/ban-ts-comment, ts/prefer-ts-expect-error
+// eslint-disable-next-line ts/ban-ts-comment
 // @ts-ignore
 export * from './dist/vue'

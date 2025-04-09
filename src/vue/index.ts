@@ -1,7 +1,7 @@
-import { inject, unref, watch } from 'vue-demi'
-import type { MaybeRef } from 'vue-demi'
 import type { QueryClient, QueryKey } from '@tanstack/vue-query'
+import type { MaybeRef } from 'vue-demi'
 import { useQueryClient } from '@tanstack/vue-query'
+import { inject, unref, watch } from 'vue-demi'
 import type { QueryCallbacks } from '../core/index'
 import { subscribeQueryCallbacks } from '../core/index'
 

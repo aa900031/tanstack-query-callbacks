@@ -1,7 +1,7 @@
-import type { Context } from 'react'
-import { useEffect } from 'react'
 import type { QueryClient, QueryKey } from '@tanstack/react-query'
+import type { Context } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
+import { useEffect } from 'react'
 import type { QueryCallbacks } from '../core/index'
 import { subscribeQueryCallbacks } from '../core/index'
 

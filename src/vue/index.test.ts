@@ -1,6 +1,6 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { QueryClient, VueQueryPlugin, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { cleanup, render, waitFor } from '@testing-library/vue'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useQueryCallbacks } from './index'
 
 describe('vue', () => {
