@@ -2,7 +2,7 @@
 	"name": "tanstack-query-callbacks",
 	"type": "module",
 	"version": "0.2.0",
-	"packageManager": "pnpm@8.15.1",
+	"packageManager": "pnpm@8.15.9",
 	"author": "zhong666 <hi@zhong666.me>",
 	"license": "MIT",
 	"keywords": [
