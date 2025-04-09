@@ -111,7 +111,7 @@
 		"react-dom": "^18.3.1",
 		"release-it": "^16.3.0",
 		"typescript": "^5.8.3",
-		"unbuild": "^2.0.0",
+		"unbuild": "^3.5.0",
 		"vitest": "^3.1.1",
 		"vue": "^3.5.13",
 		"vue-2": "npm:vue@~2.6.12",
