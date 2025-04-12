@@ -1,0 +1,4 @@
+{
+	"$schema": "https://raw.githubusercontent.com/release-it/release-it/refs/heads/main/schema/release-it.json",
+	"extends": "@aa900031/release-it-config"
+}
