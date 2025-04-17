@@ -5,6 +5,9 @@
 [![bundle][bundle-src]][bundle-href]
 [![coverage][coverage-src]][coverage-href]
 
+[![npm peer dependency version - @tanstack/vue-query][peer-deps-tanstack-vue-query-src]][peer-deps-tanstack-vue-query-href]
+[![npm peer dependency version - @tanstack/react-query][peer-deps-tanstack-react-query-src]][peer-deps-tanstack-react-query-href]
+
 Use callbacks of query in the usual way, as before.
 
 The tanstack/query has removed `onSuccess`, `onError` and `onSettled` from useQuery in v5. You can find more information in the [RFC](https://github.com/TanStack/query/discussions/5279).
@@ -78,5 +81,9 @@ useQueryCallbacks({
 [npm-downloads-href]: https://npmjs.com/package/tanstack-query-callbacks
 [bundle-src]: https://img.shields.io/bundlephobia/minzip/tanstack-query-callbacks?style=flat&colorA=18181B&colorB=F0DB4F
 [bundle-href]: https://bundlephobia.com/result?p=tanstack-query-callbacks
-[coverage-src]: https://img.shields.io/codecov/c/gh/aa900031/tanstack-query-callbacks?token=AG56Z6EP8U&logo=codecov&color=F0DB4F
+[coverage-src]: https://img.shields.io/codecov/c/gh/aa900031/tanstack-query-callbacks?logo=codecov&style=flat&colorA=18181B&colorB=F0DB4F
 [coverage-href]: https://codecov.io/gh/aa900031/tanstack-query-callbacks
+[peer-deps-tanstack-vue-query-src]: https://img.shields.io/npm/dependency-version/tanstack-query-callbacks/peer/@tanstack/vue-query?style=flat&colorA=18181B&colorB=F0DB4F
+[peer-deps-tanstack-vue-query-href]: https://www.npmjs.com/package/@tanstack/vue-query
+[peer-deps-tanstack-react-query-src]: https://img.shields.io/npm/dependency-version/tanstack-query-callbacks/peer/@tanstack/react-query?style=flat&colorA=18181B&colorB=F0DB4F
+[peer-deps-tanstack-react-query-href]: https://www.npmjs.com/package/@tanstack/react-query
