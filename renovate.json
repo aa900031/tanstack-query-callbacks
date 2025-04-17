@@ -6,11 +6,11 @@
 	"packageRules": [
 		{
 			"matchPackageNames": ["vue-2"],
-			"allowedVersions": "~2.6.x"
+			"allowedVersions": ">=2.6.0 <2.7.0"
 		},
 		{
 			"matchPackageNames": ["vue-2.7"],
-			"allowedVersions": "2.7.x <3.0.0"
+			"allowedVersions": ">=2.7.0 <3.0.0"
 		}
 	]
 }
