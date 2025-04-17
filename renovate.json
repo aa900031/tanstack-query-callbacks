@@ -5,11 +5,11 @@
 	],
 	"packageRules": [
 		{
-			"matchPackageNames": ["vue-2"],
+			"matchDepNames": ["vue-2"],
 			"allowedVersions": "<2.7.0"
 		},
 		{
-			"matchPackageNames": ["vue-2.7"],
+			"matchDepNames": ["vue-2.7"],
 			"allowedVersions": "<3.0.0"
 		}
 	]
