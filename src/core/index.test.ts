@@ -122,5 +122,6 @@ describe('core', () => {
 		})
 
 		expect(unsubscribe).toBeTypeOf('function')
+		unsubscribe()
 	})
 })

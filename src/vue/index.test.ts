@@ -1,6 +1,7 @@
 import { QueryClient, useQuery, useQueryClient, VueQueryPlugin } from '@tanstack/vue-query'
 import { waitFor } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { inject } from 'vue-demi'
 import { cleanUp, mountSetup } from '../../test/vue-mount'
 import { useQueryCallbacks } from './index'
 
@@ -130,6 +131,37 @@ describe('vue', () => {
 			return result
 		}, {
 			queryClientKey: queryClientId,
+		})
+
+		expect(query.data.value).toBeUndefined()
+		await waitFor(() => expect(query.data.value).not.toBeUndefined())
+
+		expect(query.data.value).toBe('bar')
+		expect(onSuccess).toBeCalledTimes(1)
+		expect(onSuccess).toBeCalledWith('bar')
+	})
+
+	it('should call onSuccess with `queryClientKey`', async () => {
+		const onSuccess = vi.fn()
+		const QUERY_KEY = ['foo']
+		const queryClientKey = '_vue_query_'
+
+		const { result: query } = mountSetup(() => {
+			const queryClient = inject(queryClientKey) as QueryClient
+			const result = useQuery({
+				queryKey: QUERY_KEY,
+				queryFn: () => Promise.resolve('bar'),
+			}, queryClient)
+
+			useQueryCallbacks({
+				queryKey: QUERY_KEY,
+				queryClientKey,
+				onSuccess,
+			})
+
+			return result
+		}, (app) => {
+			app.provide(queryClientKey, new QueryClient())
 		})
 
 		expect(query.data.value).toBeUndefined()

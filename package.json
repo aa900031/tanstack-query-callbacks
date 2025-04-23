@@ -53,7 +53,7 @@
 	},
 	"scripts": {
 		"build": "unbuild",
-		"test": "vitest run --coverage",
+		"test": "vitest run",
 		"test:vue": "vue-demi-switch 3 && vitest run --dir ./src/vue",
 		"test:vue-2": "vue-demi-switch 2 vue-2 && vitest run --dir ./src/vue",
 		"test:vue-2.7": "vue-demi-switch 2.7 vue-2.7 && vitest run --dir ./src/vue",

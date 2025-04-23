@@ -56,6 +56,7 @@ export function subscribeQueryCallbacks<
 
 		switch (event.action.type) {
 			case 'success': {
+				/* istanbul ignore else */
 				if (!event.action.manual) {
 					onSuccess?.(event.action.data)
 					onSettled?.(event.action.data, null)
@@ -63,6 +64,7 @@ export function subscribeQueryCallbacks<
 				break
 			}
 			case 'error': {
+				/* istanbul ignore else */
 				if (!isCancelledError(event.action.error)) {
 					onError?.(event.action.error)
 					onSettled?.(undefined, event.action.error)
