@@ -5,7 +5,14 @@ export default defineConfig({
 		dir: './src',
 		environment: 'happy-dom',
 		coverage: {
+			enabled: true,
 			provider: 'istanbul',
+		},
+		reporters: [
+			'junit',
+		],
+		outputFile: {
+			junit: './test-reports/junit.xml',
 		},
 	},
 })
