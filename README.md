@@ -33,6 +33,7 @@ pnpm add tanstack-query-callbacks
 <script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query'
 import { useQueryCallbacks } from 'tanstack-query-callbacks/vue'
+
 const queryKey = ['foo']
 const query = useQuery(queryKey, () => Promise.resolve('bar'))
 useQueryCallbacks({
