@@ -53,6 +53,6 @@ export function useQueryCallbacks<
 				unsubscribe()
 			})
 		},
-		{ immediate: true },
+		{ immediate: true, flush: 'sync' },
 	)
 }
