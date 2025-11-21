@@ -96,11 +96,11 @@
 	"devDependencies": {
 		"@aa900031/eslint-config": "^3.1.0",
 		"@aa900031/release-it-config": "^0.1.0",
-		"@tanstack/query-core": "^5.83.1",
+		"@tanstack/query-core": "^5.90.10",
 		"@tanstack/query-core-v4": "npm:@tanstack/query-core@^4.40.0",
-		"@tanstack/react-query": "^5.84.2",
+		"@tanstack/react-query": "^5.90.10",
 		"@tanstack/react-query-v4": "npm:@tanstack/react-query@^4.40.1",
-		"@tanstack/vue-query": "^5.83.1",
+		"@tanstack/vue-query": "^5.91.2",
 		"@tanstack/vue-query-v4": "npm:@tanstack/vue-query@^4.40.0",
 		"@testing-library/react": "14.3.1",
 		"@testing-library/vue": "^8.1.0",
@@ -120,7 +120,7 @@
 		"typescript": "^5.9.2",
 		"unbuild": "^3.6.0",
 		"vitest": "^3.2.4",
-		"vue": "^3.5.18",
+		"vue": "^3.5.24",
 		"vue-2": "npm:vue@~2.6.14",
 		"vue-2.7": "npm:vue@~2.7.16"
 	},
