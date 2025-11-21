@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v0.2.2
+
+[compare changes](https://github.com/aa900031/tanstack-query-callbacks/compare/v0.2.1...v0.2.2)
+
+### 🩹 Fixes
+
+-  Not apply callback in server side ([fd62e4d](https://github.com/aa900031/tanstack-query-callbacks/commit/fd62e4dbbfdbc258c7a4550ec01c4a1c9471b576))
+
+### 🏡 Chore
+
+-  Add peer deps shields ([fc9d8f8](https://github.com/aa900031/tanstack-query-callbacks/commit/fc9d8f838b8b9d7374c5bc0bd071c851ea064346))
+-  Add test reports (#37) ([24f87d7](https://github.com/aa900031/tanstack-query-callbacks/commit/24f87d7edad13b23497af754350e2b7fca96ba4d))
+-  Adjust renovate.json ([e3db935](https://github.com/aa900031/tanstack-query-callbacks/commit/e3db935f367692df3b50a29b5e26bb07a0daa59e))
+-  Adjust renovate.json ([c7c645c](https://github.com/aa900031/tanstack-query-callbacks/commit/c7c645c9e2e047a1bafba470588f3b5f185e4374))
+-  Adjust renovate.json ([f41d22a](https://github.com/aa900031/tanstack-query-callbacks/commit/f41d22a9e2d61725234b63f56f4b66c83e360ad4))
+-  **ci:** Autofix ([82d5bdf](https://github.com/aa900031/tanstack-query-callbacks/commit/82d5bdfc4855e50811496eb5bafef4f7b8895032))
+-  **ci:** Control test report & coverage for cli args ([de4077d](https://github.com/aa900031/tanstack-query-callbacks/commit/de4077df4628f60044d166f0b5d177de678d88da))
+-  **ci:** Use aa900031/github-actions/setup-node ([ac9626f](https://github.com/aa900031/tanstack-query-callbacks/commit/ac9626fdd35c9fde991d5e279e6a0b8f417c71d4))
+-  **deps:** Update npm non-major develop dependencies (#31) ([3ee64d9](https://github.com/aa900031/tanstack-query-callbacks/commit/3ee64d9d1e531edd037fbf925eab1379a5f8dc09))
+-  **deps:** Update npm non-major develop dependencies (#38) ([b3eb686](https://github.com/aa900031/tanstack-query-callbacks/commit/b3eb6866c1e7d81a46a2a7ab412e9e0f27a1521a))
+-  **deps:** Update npm non-major develop dependencies (#40) ([e652ad2](https://github.com/aa900031/tanstack-query-callbacks/commit/e652ad2cf3579f3768354fd6e014848eefca4933))
+-  **deps:** Update pnpm to v10.11.0 (#35) ([fd40f4e](https://github.com/aa900031/tanstack-query-callbacks/commit/fd40f4ef4b3407309475ebcf07090360e0f2c807))
+-  **deps:** Update some dev tools ([6d9bb65](https://github.com/aa900031/tanstack-query-callbacks/commit/6d9bb65fcfb0de8f410f546671bd33676ea0edc1))
+-  **deps:** Use release-it 19 ([8a00f67](https://github.com/aa900031/tanstack-query-callbacks/commit/8a00f67a404e437570a4ac05ef96f2ff0321fcdb))
+-  Update deps ([551be0d](https://github.com/aa900031/tanstack-query-callbacks/commit/551be0da9ba7550cd410ae959512aa4ae7541fb8))
+-  Update LICENSE ([3f53af1](https://github.com/aa900031/tanstack-query-callbacks/commit/3f53af1edff9fa02860f72560013522034f1395c))
+-  Use release-it-config (#34) ([de89d90](https://github.com/aa900031/tanstack-query-callbacks/commit/de89d901fe12151dfa6178b99d4eaa5c75f83cca))
+
+
+
+#### ❤️ Contributors
+
+- Zhong666 <aa900031@gmail.com>
+- Renovate[bot]
+
 ## v0.2.1
 
 [compare changes](https://github.com/aa900031/tanstack-query-callbacks/compare/v0.2.0...v0.2.1)
