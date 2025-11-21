@@ -43,11 +43,11 @@ export function mount<
 	}
 }
 
-export type MountSetupResult<T> =
-	& MountResult
-	& {
-		result: T
-	}
+export type MountSetupResult<T>
+	= & MountResult
+		& {
+			result: T
+		}
 
 export function mountSetup<T>(
 	setup: () => T,
