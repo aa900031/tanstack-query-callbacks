@@ -76,7 +76,7 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "unbuild",
+		"build": "tsdown",
 		"test": "vitest run",
 		"test:vue": "vue-demi-switch 3 && vitest run --dir ./src/vue",
 		"test:vue-2": "vue-demi-switch 2 vue-2 && vitest run --dir ./src/vue",
@@ -153,8 +153,8 @@
 		"react-dom": "^18.3.1",
 		"release-it": "^19.0.6",
 		"svelte": "^5.53.0",
+		"tsdown": "^0.20.0",
 		"typescript": "^5.9.3",
-		"unbuild": "^3.6.1",
 		"typescript-svelte-plugin": "^0.3.50",
 		"vitest": "^3.2.4",
 		"vue": "^3.5.24",
