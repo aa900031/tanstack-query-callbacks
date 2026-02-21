@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v0.3.0
+
+[compare changes](https://github.com/aa900031/tanstack-query-callbacks/compare/v0.2.2...v0.3.0)
+
+### 🚀 Enhancements
+
+-  Support svelte ([b407508](https://github.com/aa900031/tanstack-query-callbacks/commit/b407508cc3d18640fcacdd91778be879da173c91))
+
+### 🏡 Chore
+
+-  **deps:** Update dev deps ([ab8f631](https://github.com/aa900031/tanstack-query-callbacks/commit/ab8f6312a7a04eb7c54229f17222b30ad5663f71))
+-  Move pnpm config to workspace yaml ([c99fd26](https://github.com/aa900031/tanstack-query-callbacks/commit/c99fd26eb576652bfe6e7f57898b9854f9dcd63b))
+-  Move to tsdown ([63110c4](https://github.com/aa900031/tanstack-query-callbacks/commit/63110c46ec2a7c3839667f33e2a9f6ce4a48dbcf))
+
+
+
+#### ❤️ Contributors
+
+- Zhong666 <aa900031@gmail.com>
+
 ## v0.2.2
 
 [compare changes](https://github.com/aa900031/tanstack-query-callbacks/compare/v0.2.1...v0.2.2)
