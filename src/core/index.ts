@@ -63,6 +63,7 @@ export function subscribeQueryCallbacks<
 				}
 				break
 			}
+			case 'failed':
 			case 'error': {
 				/* istanbul ignore else */
 				if (!isCancelledError(event.action.error)) {

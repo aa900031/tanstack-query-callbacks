@@ -1,18 +1,23 @@
 {
-	"extends": "./tsconfig.base.json",
+	"extends": "./tsconfig.app.json",
 	"compilerOptions": {
-		"jsx": "preserve",
-		"lib": [
-			"DOM"
-		],
+		"lib": [],
 		"types": [
 			"node"
+		],
+		"plugins": [
+			{
+				"name": "typescript-svelte-plugin"
+			}
 		]
 	},
 	"include": [
 		"src/**/*.ts",
 		"test/**/*.ts",
 		"src/**/*.tsx",
-		"test/**/*.tsx"
-	]
+		"test/**/*.tsx",
+		"src/**/*.svelte",
+		"test/**/*.svelte"
+	],
+	"exclude": []
 }

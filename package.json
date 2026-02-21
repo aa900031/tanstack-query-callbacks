@@ -16,6 +16,7 @@
 	"keywords": [
 		"tanstack",
 		"tanstack-query",
+		"svelte-query",
 		"vue-query",
 		"react-query"
 	],
@@ -23,29 +24,52 @@
 	"exports": {
 		".": {
 			"import": {
-				"types": "./dist/core/index.d.mts",
-				"default": "./dist/core/index.mjs"
+				"types": "./dist/core/index.d.ts",
+				"default": "./dist/core/index.js"
 			},
 			"require": {
 				"types": "./dist/core/index.d.cts",
 				"default": "./dist/core/index.cjs"
 			}
 		},
+		"./svelte": {
+			"import": {
+				"types": "./dist/svelte/index.d.ts",
+				"default": "./dist/svelte/index.js"
+			},
+			"require": {
+				"types": "./dist/svelte/index.d.cts",
+				"default": "./dist/svelte/index.cjs"
+			}
+		},
 		"./vue": {
-			"import": "./dist/vue/index.mjs",
-			"require": "./dist/vue/index.cjs"
+			"import": {
+				"types": "./dist/vue/index.d.ts",
+				"default": "./dist/vue/index.js"
+			},
+			"require": {
+				"types": "./dist/vue/index.d.cts",
+				"default": "./dist/vue/index.cjs"
+			}
 		},
 		"./react": {
-			"import": "./dist/react/index.mjs",
-			"require": "./dist/react/index.cjs"
+			"import": {
+				"types": "./dist/react/index.d.ts",
+				"default": "./dist/react/index.js"
+			},
+			"require": {
+				"types": "./dist/react/index.d.cts",
+				"default": "./dist/react/index.cjs"
+			}
 		}
 	},
 	"main": "dist/core/index.cjs",
-	"module": "dist/core/index.mjs",
+	"module": "dist/core/index.js",
 	"types": "dist/core/index.d.ts",
 	"files": [
 		"dist",
 		"react.d.ts",
+		"svelte.d.ts",
 		"vue.d.ts"
 	],
 	"publishConfig": {
@@ -71,13 +95,18 @@
 	"peerDependencies": {
 		"@tanstack/query-core": "^4.* || ^5.*",
 		"@tanstack/react-query": "^4.* || ^5.*",
+		"@tanstack/svelte-query": "^4.* || ^5.*",
 		"@tanstack/vue-query": "^4.* || ^5.*",
 		"@vue/composition-api": "^1.1.0",
 		"react": "^18.0.0",
+		"svelte": "^3.0.0 || ^4.0.0 || ^5.0.0",
 		"vue": "^2.6.12 || ^3.2.0"
 	},
 	"peerDependenciesMeta": {
 		"@tanstack/react-query": {
+			"optional": true
+		},
+		"@tanstack/svelte-query": {
 			"optional": true
 		},
 		"@tanstack/vue-query": {
@@ -89,6 +118,9 @@
 		"react": {
 			"optional": true
 		},
+		"svelte": {
+			"optional": true
+		},
 		"vue": {
 			"optional": true
 		}
@@ -96,13 +128,16 @@
 	"devDependencies": {
 		"@aa900031/eslint-config": "^3.2.0",
 		"@aa900031/release-it-config": "^0.1.0",
-		"@tanstack/query-core": "^5.90.10",
+		"@sveltejs/vite-plugin-svelte": "^5.1.1",
+		"@tanstack/query-core": "^5.90.20",
 		"@tanstack/query-core-v4": "npm:@tanstack/query-core@^4.41.0",
 		"@tanstack/react-query": "^5.90.10",
 		"@tanstack/react-query-v4": "npm:@tanstack/react-query@^4.42.0",
+		"@tanstack/svelte-query": "^6.0.18",
 		"@tanstack/vue-query": "^5.91.2",
 		"@tanstack/vue-query-v4": "npm:@tanstack/vue-query@^4.41.0",
 		"@testing-library/react": "14.3.1",
+		"@testing-library/svelte": "^5.2.7",
 		"@testing-library/vue": "^8.1.0",
 		"@tsconfig/node18": "^18.2.5",
 		"@types/node": "^18.19.130",
@@ -117,8 +152,10 @@
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"release-it": "^19.0.6",
+		"svelte": "^5.53.0",
 		"typescript": "^5.9.3",
 		"unbuild": "^3.6.1",
+		"typescript-svelte-plugin": "^0.3.50",
 		"vitest": "^3.2.4",
 		"vue": "^3.5.24",
 		"vue-2": "npm:vue@~2.6.14",

@@ -3,6 +3,8 @@ import { createApp, defineComponent, h, Vue2 } from 'vue-demi'
 
 export interface MountResult {
 	app: App
+	// eslint-disable-next-line ts/ban-ts-comment
+	// @ts-expect-error
 	instance: ComponentInstance
 }
 
@@ -33,6 +35,8 @@ export function mount<
 	init?.(app)
 
 	const el = document.createElement('div')
+	// eslint-disable-next-line ts/ban-ts-comment
+	// @ts-expect-error
 	const instance = app.mount(el) as ComponentInstance
 
 	apps.add(app)

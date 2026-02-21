@@ -7,6 +7,7 @@
 
 [![npm peer dependency version - @tanstack/vue-query][peer-deps-tanstack-vue-query-src]][peer-deps-tanstack-vue-query-href]
 [![npm peer dependency version - @tanstack/react-query][peer-deps-tanstack-react-query-src]][peer-deps-tanstack-react-query-href]
+[![npm peer dependency version - @tanstack/svelte-query][peer-deps-tanstack-svelte-query-src]][peer-deps-tanstack-svelte-query-href]
 
 Use callbacks of query in the usual way, as before.
 
@@ -15,7 +16,7 @@ The tanstack/query has removed `onSuccess`, `onError` and `onSettled` from useQu
 # Features
 
 - Support Tanstack/Query v4, v5
-- Support Vue, React
+- Support Vue, React, Svelte
 
 ## Instanll
 
@@ -74,6 +75,34 @@ useQueryCallbacks({
 })
 ```
 
+## Usage (Svelte)
+
+```svelte
+<script>
+	import { createQuery } from '@tanstack/svelte-query'
+	import { useQueryCallbacks } from 'tanstack-query-callbacks/svelte'
+
+	const queryKey = ['foo']
+	const query = createQuery({
+		queryKey,
+		queryFn: () => Promise.resolve('bar')
+	})
+
+	useQueryCallbacks({
+		queryKey,
+		onSuccess: (data) => {
+			console.log('success', data)
+		},
+		onError: (err) => {
+			console.error('error', err)
+		},
+		onSettled: (data, err) => {
+			console.log('settled', { data, err })
+		}
+	})
+</script>
+```
+
 <!-- Link Resources -->
 
 [npm-version-src]: https://img.shields.io/npm/v/tanstack-query-callbacks?style=flat&colorA=18181B&colorB=F0DB4F
@@ -88,3 +117,5 @@ useQueryCallbacks({
 [peer-deps-tanstack-vue-query-href]: https://www.npmjs.com/package/@tanstack/vue-query
 [peer-deps-tanstack-react-query-src]: https://img.shields.io/npm/dependency-version/tanstack-query-callbacks/peer/@tanstack/react-query?style=flat&colorA=18181B&colorB=F0DB4F
 [peer-deps-tanstack-react-query-href]: https://www.npmjs.com/package/@tanstack/react-query
+[peer-deps-tanstack-svelte-query-src]: https://img.shields.io/npm/dependency-version/tanstack-query-callbacks/peer/@tanstack/svelte-query?style=flat&colorA=18181B&colorB=F0DB4F
+[peer-deps-tanstack-svelte-query-href]: https://www.npmjs.com/package/@tanstack/svelte-query
