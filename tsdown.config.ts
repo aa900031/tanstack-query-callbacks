@@ -1,8 +1,9 @@
+import { customExports } from '@aa900031/tsdown-config'
 import { defineConfig } from 'tsdown'
 
 export default defineConfig({
 	entry: [
-		'src/core/index.ts',
+		'src/index.ts',
 		'src/vue/index.ts',
 		'src/react/index.ts',
 		'src/svelte/index.ts',
@@ -10,7 +11,10 @@ export default defineConfig({
 	platform: 'browser',
 	format: ['esm', 'cjs'],
 	unbundle: true,
-	clean: true,
+	exports: {
+		devExports: true,
+		customExports,
+	},
 	dts: {
 		compilerOptions: {
 			composite: false,

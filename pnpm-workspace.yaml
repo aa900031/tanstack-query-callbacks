@@ -1,11 +1,15 @@
+autoInstallPeers: false
 enablePrePostScripts: true
 ignoreWorkspaceRootCheck: true
 shamefullyHoist: true
 shellEmulator: true
+strictPeerDependencies: false
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 43200
-strictPeerDependencies: false
-autoInstallPeers: false
+
+overrides:
+  vue-demi: latest
+
 onlyBuiltDependencies:
   - esbuild
   - vue-demi

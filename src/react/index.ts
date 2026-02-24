@@ -1,9 +1,9 @@
 import type { QueryClient, QueryKey } from '@tanstack/react-query'
 import type { Context } from 'react'
-import type { QueryCallbacks } from '../core/index'
+import type { QueryCallbacks } from '../index'
 import { useQueryClient } from '@tanstack/react-query'
 import { useEffect } from 'react'
-import { subscribeQueryCallbacks } from '../core/index'
+import { subscribeQueryCallbacks } from '../index'
 
 export interface UseQueryCallbacksProps<
 	TQueryFnData,

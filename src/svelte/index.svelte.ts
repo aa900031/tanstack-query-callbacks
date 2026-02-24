@@ -1,8 +1,8 @@
 import type { QueryClient, QueryKey } from '@tanstack/svelte-query'
-import type { QueryCallbacks } from '../core/index'
+import type { QueryCallbacks } from '../index'
 import { useQueryClient } from '@tanstack/svelte-query'
 import { untrack } from 'svelte'
-import { subscribeQueryCallbacks } from '../core/index'
+import { subscribeQueryCallbacks } from '../index'
 
 export interface UseQueryCallbacksProps<
 	TQueryFnData,

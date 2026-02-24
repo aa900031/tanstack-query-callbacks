@@ -1,9 +1,9 @@
 import type { QueryClient, QueryKey } from '@tanstack/vue-query'
 import type { Ref } from 'vue-demi'
-import type { QueryCallbacks } from '../core/index'
+import type { QueryCallbacks } from '../index'
 import { useQueryClient } from '@tanstack/vue-query'
 import { inject, unref, watch } from 'vue-demi'
-import { subscribeQueryCallbacks } from '../core/index'
+import { subscribeQueryCallbacks } from '../index'
 
 export interface UseQueryCallbacksProps<
 	TQueryFnData,
