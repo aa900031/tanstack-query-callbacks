@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v0.3.1
+
+[compare changes](https://github.com/aa900031/tanstack-query-callbacks/compare/v0.3.0...v0.3.1)
+
+### 🏡 Chore
+
+-  **deps:** Update dev deps ([510eb1e](https://github.com/aa900031/tanstack-query-callbacks/commit/510eb1e810797df0993f7c32f039dd4705a02cce))
+-  Fix coverage for svelte ([75f1863](https://github.com/aa900031/tanstack-query-callbacks/commit/75f186347d69555a56aae2bd0204a63442380391))
+-  Lint format ([9eafe54](https://github.com/aa900031/tanstack-query-callbacks/commit/9eafe547f8e16e2fe0eb7d43026f97e6e6a5e367))
+-  Use @aa900031/tsdown-config ([569d41f](https://github.com/aa900031/tanstack-query-callbacks/commit/569d41fee82efa9a24456d0b7fb3515f7d629f49))
+
+
+
+#### ❤️ Contributors
+
+- Zhong666 <aa900031@gmail.com>
+
 ## v0.3.0
 
 [compare changes](https://github.com/aa900031/tanstack-query-callbacks/compare/v0.2.2...v0.3.0)
