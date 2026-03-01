@@ -27,14 +27,14 @@ importers:
         specifier: ^5.90.20
         version: 5.90.20
       '@tanstack/query-core-v4':
-        specifier: npm:@tanstack/query-core@^4.41.0
-        version: '@tanstack/query-core@4.41.0'
+        specifier: npm:@tanstack/query-core@^4.43.0
+        version: '@tanstack/query-core@4.43.0'
       '@tanstack/react-query':
         specifier: ^5.90.21
         version: 5.90.21(react@18.3.1)
       '@tanstack/react-query-v4':
-        specifier: npm:@tanstack/react-query@^4.42.0
-        version: '@tanstack/react-query@4.42.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)'
+        specifier: npm:@tanstack/react-query@^4.43.0
+        version: '@tanstack/react-query@4.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)'
       '@tanstack/svelte-query':
         specifier: ^6.0.18
         version: 6.0.18(svelte@5.53.3)
@@ -42,19 +42,19 @@ importers:
         specifier: ^5.92.9
         version: 5.92.9(@vue/composition-api@1.7.2(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))
       '@tanstack/vue-query-v4':
-        specifier: npm:@tanstack/vue-query@^4.41.0
-        version: '@tanstack/vue-query@4.41.0(@vue/composition-api@1.7.2(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))'
+        specifier: npm:@tanstack/vue-query@^4.43.0
+        version: '@tanstack/vue-query@4.43.0(@vue/composition-api@1.7.2(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))'
       '@testing-library/react':
         specifier: 14.3.1
         version: 14.3.1(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@testing-library/svelte':
-        specifier: ^5.2.7
+        specifier: ^5.3.1
         version: 5.3.1(svelte@5.53.3)(vite@6.4.1(@types/node@18.19.130)(jiti@2.6.1)(yaml@2.8.2))(vitest@3.2.4)
       '@testing-library/vue':
         specifier: ^8.1.0
         version: 8.1.0(@vue/compiler-sfc@3.5.29)(vue@3.5.29(typescript@5.9.3))
       '@tsconfig/node18':
-        specifier: ^18.2.5
+        specifier: ^18.2.6
         version: 18.2.6
       '@types/node':
         specifier: ^18.19.130
@@ -99,7 +99,7 @@ importers:
         specifier: ^5.53.3
         version: 5.53.3
       tsdown:
-        specifier: ^0.20.0
+        specifier: ^0.20.3
         version: 0.20.3(synckit@0.11.12)(typescript@5.9.3)
       typescript:
         specifier: ^5.9.3
@@ -1072,14 +1072,14 @@ packages:
     resolution: {integrity: sha512-Wo1iKt2b9OT7d+YGhvEPD3DXvPv2etTusIMhMUoG7fbhmxcXCtIjJDEygy91Y2JFlwGyjqiBPRozme7UD8hoqg==}
     engines: {node: '>=12'}
 
-  '@tanstack/query-core@4.41.0':
-    resolution: {integrity: sha512-193R4Jp9hjvlij6LryxrB5Mpbffd2L9PeWh3KlIy/hJV4SkBOfiQZ+jc5qAZLDCrdbkA5FjGj+UoDYw6TcNnyA==}
+  '@tanstack/query-core@4.43.0':
+    resolution: {integrity: sha512-m1QeUUIpNXDYxmfuuWNFZLky0EwVmbE0hj8ulZ2nIGA1183raJgDCn0IKlxug80NotRqzodxAaoYTKHbE1/P/Q==}
 
   '@tanstack/query-core@5.90.20':
     resolution: {integrity: sha512-OMD2HLpNouXEfZJWcKeVKUgQ5n+n3A2JFmBaScpNDUqSrQSjiveC7dKMe53uJUg1nDG16ttFPz2xfilz6i2uVg==}
 
-  '@tanstack/react-query@4.42.0':
-    resolution: {integrity: sha512-j0tiofkzE3CSrYKmVRaKuwGgvCE+P2OOEDlhmfjeZf5ufcuFHwYwwgw3j08n4WYPVZ+OpsHblcFYezhKA3jDwg==}
+  '@tanstack/react-query@4.43.0':
+    resolution: {integrity: sha512-Lj8luFKHQL27oZbw5T8xdTbsfAPp2+bCtSCa2bAVvIwnvNfRP0hpB1GxfKFgCktat8lPcYBHAu8eMTXzz2sQtQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -1100,8 +1100,8 @@ packages:
     peerDependencies:
       svelte: ^5.25.0
 
-  '@tanstack/vue-query@4.41.0':
-    resolution: {integrity: sha512-uqRasE5l4yxa1urhk+iC4wFTdKkjm89Vyo6CZSYQS3O7KggZnY3ZYdV7QLmv9nUdJ1L6QhQN8CI5ycPBcH4rwA==}
+  '@tanstack/vue-query@4.43.0':
+    resolution: {integrity: sha512-Ydh9UAkSAPwR/54q9vlREwZVPNx3quUxf4YAT2dJY8bAn3ANWyI/L+ll5pi7yB2LqVTaYGeC1ggM05dERmZ5Ug==}
     peerDependencies:
       '@vue/composition-api': ^1.1.2
       vue: ^2.5.0 || ^3.0.0
@@ -3638,8 +3638,8 @@ packages:
     resolution: {integrity: sha512-n2huDr9h9yzd6exQVnH/jU5mr+Pfx08LRXXZhkLLetAMESRj+anQsTAh940iMrIetKAmry9coFuZQ2jY8/p3WA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  use-sync-external-store@1.5.0:
-    resolution: {integrity: sha512-Rb46I4cGGVBmjamjphe8L/UnvJD+uPPtTkNvX5mZgqdbavhI4EbgIWJiIHXJ8bc/i9EQGPRh4DwEURJ552Do0A==}
+  use-sync-external-store@1.6.0:
+    resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -4760,15 +4760,15 @@ snapshots:
     dependencies:
       remove-accents: 0.5.0
 
-  '@tanstack/query-core@4.41.0': {}
+  '@tanstack/query-core@4.43.0': {}
 
   '@tanstack/query-core@5.90.20': {}
 
-  '@tanstack/react-query@4.42.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tanstack/react-query@4.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@tanstack/query-core': 4.41.0
+      '@tanstack/query-core': 4.43.0
       react: 18.3.1
-      use-sync-external-store: 1.5.0(react@18.3.1)
+      use-sync-external-store: 1.6.0(react@18.3.1)
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
@@ -4782,10 +4782,10 @@ snapshots:
       '@tanstack/query-core': 5.90.20
       svelte: 5.53.3
 
-  '@tanstack/vue-query@4.41.0(@vue/composition-api@1.7.2(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))':
+  '@tanstack/vue-query@4.43.0(@vue/composition-api@1.7.2(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))':
     dependencies:
       '@tanstack/match-sorter-utils': 8.19.4
-      '@tanstack/query-core': 4.41.0
+      '@tanstack/query-core': 4.43.0
       '@vue/devtools-api': 6.6.4
       vue: 3.5.29(typescript@5.9.3)
       vue-demi: 0.14.10(@vue/composition-api@1.7.2(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))
@@ -7719,7 +7719,7 @@ snapshots:
 
   url-join@5.0.0: {}
 
-  use-sync-external-store@1.5.0(react@18.3.1):
+  use-sync-external-store@1.6.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
