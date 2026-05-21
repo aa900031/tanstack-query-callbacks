@@ -6,6 +6,7 @@ export default defineConfig({
 		'src/index.ts',
 		'src/vue/index.ts',
 		'src/react/index.ts',
+		'src/solid/index.ts',
 		'src/svelte/index.ts',
 	],
 	platform: 'browser',
