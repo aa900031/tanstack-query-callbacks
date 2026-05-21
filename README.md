@@ -8,6 +8,7 @@
 [![npm peer dependency version - @tanstack/vue-query][peer-deps-tanstack-vue-query-src]][peer-deps-tanstack-vue-query-href]
 [![npm peer dependency version - @tanstack/react-query][peer-deps-tanstack-react-query-src]][peer-deps-tanstack-react-query-href]
 [![npm peer dependency version - @tanstack/svelte-query][peer-deps-tanstack-svelte-query-src]][peer-deps-tanstack-svelte-query-href]
+[![npm peer dependency version - @tanstack/solid-query][peer-deps-tanstack-solid-query-src]][peer-deps-tanstack-solid-query-href]
 
 Use callbacks of query in the usual way, as before.
 
@@ -16,7 +17,7 @@ The tanstack/query has removed `onSuccess`, `onError` and `onSettled` from useQu
 ## Features
 
 - Support Tanstack/Query v4, v5
-- Support Vue, React, Svelte
+- Support Vue, React, Svelte, Solid
 
 ## Instanll
 
@@ -103,6 +104,32 @@ useQueryCallbacks({
 </script>
 ```
 
+## Usage (Solid)
+
+```ts
+import { useQuery } from '@tanstack/solid-query'
+import { useQueryCallbacks } from 'tanstack-query-callbacks/solid'
+
+const queryKey = ['foo']
+const query = useQuery(() => ({
+	queryKey,
+	queryFn: () => Promise.resolve('bar'),
+}))
+
+useQueryCallbacks(() => ({
+	queryKey,
+	onSuccess: (data) => {
+		console.log('success', data)
+	},
+	onError: (err) => {
+		console.error('error', err)
+	},
+	onSettled: (data, err) => {
+		console.log('settled', { data, err })
+	},
+}))
+```
+
 <!-- Link Resources -->
 
 [npm-version-src]: https://img.shields.io/npm/v/tanstack-query-callbacks?style=flat&colorA=18181B&colorB=F0DB4F
@@ -119,3 +146,5 @@ useQueryCallbacks({
 [peer-deps-tanstack-react-query-href]: https://www.npmjs.com/package/@tanstack/react-query
 [peer-deps-tanstack-svelte-query-src]: https://img.shields.io/npm/dependency-version/tanstack-query-callbacks/peer/@tanstack/svelte-query?style=flat&colorA=18181B&colorB=F0DB4F
 [peer-deps-tanstack-svelte-query-href]: https://www.npmjs.com/package/@tanstack/svelte-query
+[peer-deps-tanstack-solid-query-src]: https://img.shields.io/npm/dependency-version/tanstack-query-callbacks/peer/@tanstack/solid-query?style=flat&colorA=18181B&colorB=F0DB4F
+[peer-deps-tanstack-solid-query-href]: https://www.npmjs.com/package/@tanstack/solid-query

@@ -6,6 +6,7 @@ export default defineConfig({
 		'src/index.ts',
 		'src/vue/index.ts',
 		'src/react/index.ts',
+		'src/solid/index.ts',
 		'src/svelte/index.ts',
 	],
 	platform: 'browser',
@@ -24,11 +25,13 @@ export default defineConfig({
 	},
 	external: [
 		'@tanstack/query-core',
-		'@tanstack/svelte-query',
 		'@tanstack/vue-query',
 		'@tanstack/react-query',
+		'@tanstack/svelte-query',
+		'@tanstack/solid-query',
 		'vue-demi',
 		'react',
 		'svelte',
+		'solid-js',
 	],
 })

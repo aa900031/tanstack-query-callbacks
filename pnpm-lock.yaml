@@ -35,6 +35,9 @@ importers:
       '@tanstack/react-query-v4':
         specifier: npm:@tanstack/react-query@^4.44.0
         version: '@tanstack/react-query@4.44.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)'
+      '@tanstack/solid-query':
+        specifier: ^5.100.10
+        version: 5.100.11(solid-js@1.9.13)
       '@tanstack/svelte-query':
         specifier: ^6.1.29
         version: 6.1.30(svelte@5.55.9(@typescript-eslint/types@8.59.4))
@@ -95,6 +98,9 @@ importers:
       release-it:
         specifier: ^19.2.4
         version: 19.2.4(@types/node@18.19.130)(magicast@0.3.5)
+      solid-js:
+        specifier: ^1.9.13
+        version: 1.9.13
       svelte:
         specifier: ^5.55.5
         version: 5.55.9(@typescript-eslint/types@8.59.4)
@@ -1130,6 +1136,11 @@ packages:
     resolution: {integrity: sha512-J0f9s5x3LE1450nNNfYx+e/n0DMa0uOBdFJUy5r0RvmsXd4nB/n0rbHtHI1vYXhikNFan+wf51p6Tmp4c8ucrg==}
     peerDependencies:
       react: ^18 || ^19
+
+  '@tanstack/solid-query@5.100.11':
+    resolution: {integrity: sha512-T6elzjzSwzc0hr5Se+WlQHjBilxHA5q6w1XWYz72XhlUR66fQtcQdH/rtoJR/SOmRuwyHowR7IvsO/6JhraBxg==}
+    peerDependencies:
+      solid-js: ^1.6.0
 
   '@tanstack/svelte-query@6.1.30':
     resolution: {integrity: sha512-4yqDsEGF8ESvQJj+bcpe2/rlOejo4gboQe1an2ned7Q3OcivXTe4nrak+EYcvuVeY7lfxRC1ouBGFkNAimM7LA==}
@@ -3381,6 +3392,16 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  seroval-plugins@1.5.4:
+    resolution: {integrity: sha512-S0xQPhUTefAhNvNWFg0c1J8qJArHt5KdtJ/cFAofo06KD1MVSeFWyl4iiu+ApDIuw0WhjpOfCdgConOfAnLgkw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      seroval: ^1.0
+
+  seroval@1.5.4:
+    resolution: {integrity: sha512-46uFvgrXTVxZcUorgSSRZ4y+ieqLLQRMlG4bnCZKW3qI6BZm7Rg4ntMW4p1mILEEBZWrFlcpp0AyIIlM6jD9iw==}
+    engines: {node: '>=10'}
+
   set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -3442,6 +3463,9 @@ packages:
   socks@2.8.4:
     resolution: {integrity: sha512-D3YaD0aRxR3mEcqnidIs7ReYJFVzWdd6fXJYUM8ixcQcJRGTka/b3saV0KflYhyVJXKhb947GndU35SxYNResQ==}
     engines: {node: '>= 10.0.0', npm: '>= 3.0.0'}
+
+  solid-js@1.9.13:
+    resolution: {integrity: sha512-6hJeJMOcEX8ktqjpDoJZEmld3ijvcvWBDtiXBm7f4332SiFN66QeAQI1REQshvyUoISsSeJ4PHDauKYbwao9JQ==}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -4876,6 +4900,11 @@ snapshots:
     dependencies:
       '@tanstack/query-core': 5.100.11
       react: 18.3.1
+
+  '@tanstack/solid-query@5.100.11(solid-js@1.9.13)':
+    dependencies:
+      '@tanstack/query-core': 5.100.11
+      solid-js: 1.9.13
 
   '@tanstack/svelte-query@6.1.30(svelte@5.55.9(@typescript-eslint/types@8.59.4))':
     dependencies:
@@ -7500,6 +7529,12 @@ snapshots:
 
   semver@7.7.4: {}
 
+  seroval-plugins@1.5.4(seroval@1.5.4):
+    dependencies:
+      seroval: 1.5.4
+
+  seroval@1.5.4: {}
+
   set-function-length@1.2.2:
     dependencies:
       define-data-property: 1.1.4
@@ -7578,6 +7613,12 @@ snapshots:
     dependencies:
       ip-address: 9.0.5
       smart-buffer: 4.2.0
+
+  solid-js@1.9.13:
+    dependencies:
+      csstype: 3.2.3
+      seroval: 1.5.4
+      seroval-plugins: 1.5.4(seroval@1.5.4)
 
   source-map-js@1.2.1: {}
 

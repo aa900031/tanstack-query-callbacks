@@ -16,6 +16,7 @@
 	"keywords": [
 		"tanstack",
 		"tanstack-query",
+		"solid-query",
 		"svelte-query",
 		"vue-query",
 		"react-query"
@@ -24,6 +25,7 @@
 	"exports": {
 		".": "./src/index.ts",
 		"./react": "./src/react/index.ts",
+		"./solid": "./src/solid/index.ts",
 		"./svelte": "./src/svelte/index.ts",
 		"./vue": "./src/vue/index.ts",
 		"./package.json": "./package.json"
@@ -34,6 +36,7 @@
 	"files": [
 		"dist",
 		"react.d.ts",
+		"solid.d.ts",
 		"svelte.d.ts",
 		"vue.d.ts"
 	],
@@ -58,6 +61,16 @@
 				"require": {
 					"types": "./dist/react/index.d.cts",
 					"default": "./dist/react/index.cjs"
+				}
+			},
+			"./solid": {
+				"import": {
+					"types": "./dist/solid/index.d.ts",
+					"default": "./dist/solid/index.js"
+				},
+				"require": {
+					"types": "./dist/solid/index.d.cts",
+					"default": "./dist/solid/index.cjs"
 				}
 			},
 			"./svelte": {
@@ -107,11 +120,15 @@
 		"@tanstack/vue-query": "^4.* || ^5.*",
 		"@vue/composition-api": "^1.1.0",
 		"react": "^18.0.0",
+		"solid-js": "^1.6.0",
 		"svelte": "^5.0.0",
 		"vue": "^2.6.12 || ^3.2.0"
 	},
 	"peerDependenciesMeta": {
 		"@tanstack/react-query": {
+			"optional": true
+		},
+		"@tanstack/solid-query": {
 			"optional": true
 		},
 		"@tanstack/svelte-query": {
@@ -124,6 +141,9 @@
 			"optional": true
 		},
 		"react": {
+			"optional": true
+		},
+		"solid-js": {
 			"optional": true
 		},
 		"svelte": {
@@ -142,6 +162,7 @@
 		"@tanstack/query-core-v4": "npm:@tanstack/query-core@^4.44.0",
 		"@tanstack/react-query": "^5.100.10",
 		"@tanstack/react-query-v4": "npm:@tanstack/react-query@^4.44.0",
+		"@tanstack/solid-query": "^5.100.10",
 		"@tanstack/svelte-query": "^6.1.29",
 		"@tanstack/vue-query": "^5.100.10",
 		"@tanstack/vue-query-v4": "npm:@tanstack/vue-query@^4.44.0",
@@ -162,6 +183,7 @@
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"release-it": "^19.2.4",
+		"solid-js": "^1.9.13",
 		"svelte": "^5.55.5",
 		"tsdown": "^0.22.0",
 		"typescript": "^5.9.3",
