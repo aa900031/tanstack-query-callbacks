@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v0.3.2
+
+[compare changes](https://github.com/aa900031/tanstack-query-callbacks/compare/v0.3.1...v0.3.2)
+
+### 🩹 Fixes
+
+-  Svelte version for peer dependencies ([46676d0](https://github.com/aa900031/tanstack-query-callbacks/commit/46676d0b4746989bed5a898d803ae72b1bc6df86))
+
+### 🏡 Chore
+
+-  **deps:** Update node.js to v20.20.2 (#36) ([154a3bf](https://github.com/aa900031/tanstack-query-callbacks/commit/154a3bf04cb5584d6a35f8a2d3da5c08457ad4b3))
+-  **deps:** Update node.js to v22.22.3 (#46) ([2d31c5d](https://github.com/aa900031/tanstack-query-callbacks/commit/2d31c5d3cdd7d3e4594b7671ffad89764484d483))
+-  **deps:** Update npm non-major develop dependencies (#41) ([bd065d8](https://github.com/aa900031/tanstack-query-callbacks/commit/bd065d8f62a18b39aaa92a9c7beb9412d10afada))
+-  **deps:** Update pnpm to v10.33.4 (#39) ([f51f7ba](https://github.com/aa900031/tanstack-query-callbacks/commit/f51f7badbcd99fe85b246beb568d006bd47ce30d))
+-  **deps:** Upgrade @types/node to v22 ([81d8c53](https://github.com/aa900031/tanstack-query-callbacks/commit/81d8c53aa086cb8b82a56d292054532a4c366448))
+-  **deps:** Upgrade to @tsconfig/node22 ([a2c31d0](https://github.com/aa900031/tanstack-query-callbacks/commit/a2c31d0576b7c01e3ba9dc3beb65e05571767984))
+-  Format by lint ([4cbd02a](https://github.com/aa900031/tanstack-query-callbacks/commit/4cbd02a9e94cce58bc7cb09da3ef31398a9acd7d))
+-  Update nodejs v22 ([0e20853](https://github.com/aa900031/tanstack-query-callbacks/commit/0e20853362417392a102dab2938c2006921d6091))
+
+
+
+#### ❤️ Contributors
+
+- Zhong666 <aa900031@gmail.com>
+- Renovate[bot]
+
 ## v0.3.1
 
 [compare changes](https://github.com/aa900031/tanstack-query-callbacks/compare/v0.3.0...v0.3.1)
