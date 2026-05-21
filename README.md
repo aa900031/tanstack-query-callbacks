@@ -14,7 +14,7 @@ Use callbacks of query in the usual way, as before.
 
 The tanstack/query has removed `onSuccess`, `onError` and `onSettled` from useQuery in v5. You can find more information in the [RFC](https://github.com/TanStack/query/discussions/5279).
 
-# Features
+## Features
 
 - Support Tanstack/Query v4, v5
 - Support Vue, React, Svelte, Solid
