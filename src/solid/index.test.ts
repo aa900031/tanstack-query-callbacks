@@ -1,5 +1,5 @@
 import { QueryClient } from '@tanstack/query-core'
-import { createRoot } from 'solid-js'
+import { createRoot, createSignal } from 'solid-js'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useQueryCallbacks } from './index'
 
@@ -102,5 +102,70 @@ describe('solid', () => {
 		expect(onSuccess).not.toHaveBeenCalled()
 		expect(onError).not.toHaveBeenCalled()
 		expect(onSettled).not.toHaveBeenCalled()
+	})
+
+	it('should re-subscribe when queryKey signal changes', async () => {
+		const onSuccess = vi.fn()
+		const QUERY_KEY_1 = ['foo']
+		const QUERY_KEY_2 = ['bar']
+
+		const [queryKey, setQueryKey] = createSignal(QUERY_KEY_1)
+
+		createRoot((dispose) => {
+			useQueryCallbacks(() => ({
+				queryKey: queryKey(),
+				queryClient,
+				onSuccess,
+			}))
+
+			return dispose
+		})
+
+		await queryClient.fetchQuery({
+			queryKey: QUERY_KEY_1,
+			queryFn: () => Promise.resolve('data1'),
+		})
+
+		expect(onSuccess).toBeCalledTimes(1)
+		expect(onSuccess).toBeCalledWith('data1')
+
+		// Change query key signal
+		setQueryKey(QUERY_KEY_2)
+
+		await queryClient.fetchQuery({
+			queryKey: QUERY_KEY_2,
+			queryFn: () => Promise.resolve('data2'),
+		})
+
+		expect(onSuccess).toBeCalledTimes(2)
+		expect(onSuccess).toBeCalledWith('data2')
+
+		// Old query key should no longer trigger callback
+		onSuccess.mockClear()
+		await queryClient.fetchQuery({
+			queryKey: QUERY_KEY_1,
+			queryFn: () => Promise.resolve('data1-again'),
+		})
+
+		expect(onSuccess).not.toHaveBeenCalled()
+	})
+
+	it('should not call callbacks when no callbacks provided', async () => {
+		const QUERY_KEY = ['foo']
+
+		createRoot((dispose) => {
+			useQueryCallbacks(() => ({
+				queryKey: QUERY_KEY,
+				queryClient,
+			}))
+
+			return dispose
+		})
+
+		// Should not throw
+		await queryClient.fetchQuery({
+			queryKey: QUERY_KEY,
+			queryFn: () => Promise.resolve('bar'),
+		})
 	})
 })
